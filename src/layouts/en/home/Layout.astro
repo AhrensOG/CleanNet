@@ -5,22 +5,37 @@ import "../../../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Clean Net – Nettoyage Professionnel</title>
+    <title>Clean Net – Professional Cleaning Services</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17131857885"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-17131857885");
+    </script>
+
+    <!-- Alpine.js -->
     <script is:inline src="https://cdn.jsdelivr.net/npm/alpinejs" defer
     ></script>
   </head>
   <body class="min-h-screen bg-white antialiased">
-    <!-- Navbar global -->
+    <!-- Global Navbar -->
     <Navbar />
-    <!-- Contenido de la página -->
+    <!-- Page Content -->
     <slot />
-    <!-- Footer global -->
+    <!-- Global Footer -->
     <Footer />
   </body>
 </html>

@@ -1,5 +1,4 @@
 ---
-// src/pages/fr/services.astro
 import Footer from "../../../components/navigation/en/footer/Footer.astro";
 import Navbar from "../../../components/navigation/en/navbar/Navbar.astro";
 import "../../../styles/global.css";
@@ -12,22 +11,37 @@ import "../../../styles/global.css";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Services – Clean Net Genève</title>
+    <title>Services – Clean Net Geneva</title>
     <meta
       name="description"
-      content="Découvrez tous les services professionnels proposés par CleanNet à Genève : nettoyage, rénovation, conciergerie, déménagement, et plus encore."
+      content="Explore all professional services offered by Clean Net in Geneva: cleaning, renovation, concierge, moving services, and more."
     />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17131857885"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-17131857885");
+    </script>
+
+    <!-- Alpine.js -->
     <script is:inline src="https://cdn.jsdelivr.net/npm/alpinejs" defer
     ></script>
   </head>
   <body class="min-h-screen bg-white antialiased">
-    <!-- Navbar global -->
+    <!-- Global Navbar -->
     <Navbar />
 
-    <!-- Contenu principal de la page Services -->
+    <!-- Main Services Page Content -->
     <slot />
 
-    <!-- Footer global -->
+    <!-- Global Footer -->
     <Footer />
   </body>
 </html>
