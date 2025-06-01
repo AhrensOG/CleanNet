@@ -1,0 +1,59 @@
+---
+import { Phone, Menu } from "@lucide/astro";
+---
+
+<!-- Barre supérieure avec téléphone -->
+<div
+  class="bg-[#3349FF] h-11 text-white text-center text-xs font-bold md:text-xl py-2 px-4 flex justify-center items-center gap-2">
+  <span>Besoin d'une aide rapide pour le nettoyage ?</span>
+  <Phone size={20} fill="#fff" class="text-white" />
+  <span>Appelez-nous : +41 079 642 5297</span>
+</div>
+
+<!-- Navigation principale -->
+<header
+  class="absolute w-full top-11 z-10 px-6 sm:px-16 py-4 flex justify-between items-center bg-transparent">
+  <!-- Logo -->
+  <div class="flex items-center gap-2">
+    <a href="/fr">
+      <img
+        src="/cleannet.png"
+        alt="Logo CleanNet"
+        class="w-36 h-auto rounded-md object-contain"
+      />
+    </a>
+  </div>
+
+  <!-- Menu de navigation desktop -->
+  <nav class="hidden md:flex text-lg gap-6 text-cleannet-blue font-bold">
+    <a href="/fr" class="hover:text-[#EB6C26] transition">Accueil</a>
+    <a href="/fr#about" class="hover:text-[#EB6C26] transition">À propos</a>
+    <a href="/fr/services" class="hover:text-[#EB6C26] transition">Services</a>
+    <a href="/fr/contact" class="hover:text-[#EB6C26] transition">Contact</a>
+  </nav>
+
+  <!-- CTA + Sélecteur de langue -->
+  <div class="flex items-center gap-4">
+    <!-- Bouton Rendez-vous -->
+    <a
+      href="https://calendly.com/cleannet1963/30min"
+      target="_blank"
+      class="bg-cleannet-orange hidden sm:block text-white px-5 py-2 rounded-full font-semibold hover:bg-orange-600 transition text-sm md:text-base">
+      Prendre rendez-vous
+    </a>
+
+    <!-- Sélecteur de langue -->
+    <select
+      onchange="location = this.value"
+      class="text-sm md:text-base font-semibold border border-gray-300 rounded-md px-3 py-1 bg-white text-cleannet-orange focus:outline-none"
+      aria-label="Sélection de langue">
+      <option value="/fr" selected>FR</option>
+      <option value="/en">EN</option>
+    </select>
+  </div>
+
+  <!-- Bouton menu mobile -->
+  <button class="md:hidden ml-4">
+    <Menu size={24} class="text-[#33499B]" />
+  </button>
+</header>

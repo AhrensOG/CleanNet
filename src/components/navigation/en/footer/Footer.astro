@@ -1,0 +1,78 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-[#0E0C2C] text-white py-16 px-6">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
+    <!-- Logo and description -->
+    <div class="space-y-4">
+      <div class="flex items-center gap-2">
+        <a href="/en">
+          <img
+            src="/cleannet.png"
+            alt="CleanNet logo - Geneva cleaning company"
+            class="w-36 h-20"
+          />
+        </a>
+      </div>
+      <p class="text-sm text-[#BDBAC1]">
+        Professional cleaning services<br />
+        combining smart technology and human expertise.
+      </p>
+    </div>
+
+    <!-- Company Links -->
+    <div>
+      <h4 class="text-white font-semibold mb-4">Company</h4>
+      <ul class="space-y-2 text-sm text-[#BDBAC1]">
+        <li><a href="/en" class="hover:text-white">Home</a></li>
+        <li><a href="/en/services" class="hover:text-white">Services</a></li>
+        <li><a href="/en/#about" class="hover:text-white">About</a></li>
+        <li><a href="/en/contact" class="hover:text-white">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Services Links -->
+    <div>
+      <h4 class="text-white font-semibold mb-4">Our Services</h4>
+      <ul class="space-y-2 text-sm text-[#BDBAC1]">
+        <li>
+          <a href="/en/services" class="hover:text-white"
+            >Residential Cleaning</a
+          >
+        </li>
+        <li>
+          <a href="/en/services" class="hover:text-white">Window Cleaning</a>
+        </li>
+        <li>
+          <a href="/en/services" class="hover:text-white">Pest Control</a>
+        </li>
+        <li>
+          <a href="/en/services" class="hover:text-white">Floor Care</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Contact and WhatsApp -->
+    <div class="space-y-4">
+      <h4 class="text-white font-semibold mb-4">Contact</h4>
+      <p class="text-sm text-[#BDBAC1]">
+        📍 Rue de Lausanne 123, 1202 Geneva, Switzerland<br />
+        📞 +41 79 642 52 97<br />
+        📧 contact@cleannet.ch
+      </p>
+      <a
+        href="https://wa.me/41796425297?text=Hello%20CleanNet%2C%20I%20would%20like%20to%20request%20a%20quote."
+        target="_blank"
+        class="inline-block bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md transition">
+        💬 Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- Bottom line -->
+  <div
+    class="border-t border-white/10 mt-12 pt-6 text-center text-sm text-[#BDBAC1]">
+    © {currentYear} CleanNet. All rights reserved.
+  </div>
+</footer>

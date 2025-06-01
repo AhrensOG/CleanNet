@@ -1,0 +1,56 @@
+---
+import { Phone } from "@lucide/astro";
+---
+
+<section
+  class="relative bg-cleannet-blue text-white pt-20 px-0 md:py-20 md:px-6">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+    <!-- Texte -->
+    <div class="space-y-6 z-10 px-6 md:px-0">
+      <p class="uppercase text-sm font-medium tracking-wide text-white/80">
+        Contactez-nous
+      </p>
+      <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">
+        Parlons de vos besoins ou <br />
+        <span class="relative inline-block">
+          <span class="text-white relative">
+            prenez rendez-vous
+            <!-- SVG decoration stays the same -->
+          </span>
+        </span>
+      </h2>
+      <p class="text-white/80 text-base max-w-lg leading-relaxed">
+        Votre temps est précieux. Appelez-nous directement ou <strong
+          >planifiez un rendez-vous en ligne</strong
+        > en quelques clics.
+      </p>
+
+      <!-- Boutons -->
+      <div class="flex flex-col sm:flex-row gap-4 pt-4">
+        <a
+          href="tel:+410796425297"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-cleannet-orange hover:bg-orange-600 text-white font-semibold rounded-full shadow-md transition">
+          <Phone size={18} />
+          Appeler : +41 079 642 52 97
+        </a>
+
+        <a
+          href="https://calendly.com/cleannet1963/30min"
+          target="_blank"
+          class="inline-flex items-center px-6 py-3 border border-white rounded-full font-semibold hover:bg-white hover:text-cleannet-blue transition">
+          Prendre un rendez-vous
+        </a>
+      </div>
+    </div>
+
+    <!-- Image -->
+    <div
+      class="md:absolute bottom-0 right-0 flex justify-center md:justify-end">
+      <img
+        src="/home/call_to_action/cta.webp"
+        alt="Produits de nettoyage"
+        class="w-full max-w-2xl object-contain"
+      />
+    </div>
+  </div>
+</section>

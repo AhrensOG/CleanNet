@@ -1,0 +1,60 @@
+---
+import { Phone } from "@lucide/astro";
+---
+
+<section
+  class="relative w-full min-h-[800px] sm:min-h-[700px] pt-11 bg-cover bg-center text-cleannet-blue flex items-center"
+  style="background-image: url('/home/hero/banner.jpg');">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
+
+  <!-- Content -->
+  <div
+    class="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+    <!-- Text section -->
+    <div class="flex-1 text-center md:text-left space-y-5">
+      <p
+        class="uppercase text-sm tracking-widest font-semibold text-cleannet-darkgray">
+        Entreprise de nettoyage à Genève, Lancy et Carouge depuis 2002
+      </p>
+
+      <h1
+        class="text-4xl md:text-5xl font-extrabold text-[#111827] leading-tight">
+        Services professionnels de
+        <span class="relative inline-block">
+          <span class="text-cleannet-blue">nettoyage, conciergerie</span>
+          <span
+            class="absolute bottom-0 left-0 w-full h-2 bg-cleannet-orange z-[-1]"
+          ></span>
+        </span><br />
+        et rénovation à Genève
+      </h1>
+
+      <p class="text-lg text-cleannet-blue font-bold">
+        Appartements, bureaux, parquets, vitres, fin de chantier, déménagements
+        et plus. Plus de 150 clients satisfaits. Service garanti et
+        personnalisé.
+      </p>
+
+      <!-- Call to action -->
+      <div
+        class="mt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+        <!-- Call button -->
+        <a
+          href="tel:+410796425297"
+          class="inline-flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-500/70 text-[#111827] font-semibold px-6 py-3 rounded-full transition text-base shadow-md">
+          <Phone size={18} />
+          Appeler : +41 079 642 5297
+        </a>
+
+        <!-- Calendly button -->
+        <a
+          href="https://calendly.com/cleannet1963/30min"
+          target="_blank"
+          class="inline-flex items-center justify-center bg-cleannet-blue hover:bg-[#263a86] text-white font-semibold px-6 py-3 rounded-full transition text-base shadow-md">
+          Prendre rendez-vous
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

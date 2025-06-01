@@ -1,0 +1,67 @@
+---
+import ServiceCard from "./ServiceCard.astro";
+import {
+  Home,
+  Building2,
+  Layers,
+  Paintbrush,
+  Leaf,
+  Truck,
+} from "@lucide/astro";
+---
+
+<section id="services" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col gap-12">
+    <!-- Main Text -->
+    <div class="space-y-4 flex flex-col sm:flex-row justify-between">
+      <div>
+        <p class="uppercase text-sm font-medium text-cleannet-blue">
+          Professional services in Geneva
+        </p>
+        <h2 class="text-4xl font-extrabold text-cleannet-blue leading-tight">
+          Our
+          <span class="relative inline-block">
+            <span class="text-cleannet-orange">cleaning & renovation</span>
+            <span
+              class="absolute bottom-0 left-0 w-full h-2 bg-cleannet-gray z-[-1]">
+            </span>
+          </span>
+          services for homes and businesses
+        </h2>
+      </div>
+
+      <div class="max-w-xl space-y-3">
+        <p class="text-cleannet-darkgray text-base leading-relaxed">
+          CleanNet offers tailored cleaning and renovation services in Geneva,
+          including apartment cleaning, office maintenance, floor restoration,
+          concierge assistance and more. Since 2002, our team has been committed
+          to quality, speed and customer satisfaction.
+        </p>
+        <p class="text-cleannet-darkgray text-base leading-relaxed">
+          Our trained professionals use modern techniques to ensure a spotless
+          and welcoming environment for both residential and commercial clients.
+        </p>
+      </div>
+    </div>
+
+    <!-- Service Cards -->
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 border-t border-b border-cleannet-gray/30 py-8">
+      <ServiceCard Icon={Home} title="Apartment Cleaning" />
+      <ServiceCard Icon={Building2} title="Office Maintenance" />
+      <ServiceCard Icon={Layers} title="Floor Sanding" />
+      <ServiceCard Icon={Paintbrush} title="Interior Painting" />
+      <ServiceCard Icon={Leaf} title="Garden Care" />
+      <ServiceCard Icon={Truck} title="Moving Services Geneva" />
+    </div>
+
+    <!-- Link to all services -->
+    <div class="flex justify-center pt-4">
+      <a
+        href="/en/services"
+        class="inline-block bg-cleannet-blue hover:bg-[#263a86] text-white font-semibold px-6 py-3 rounded-full text-base shadow-md transition">
+        View all services
+      </a>
+    </div>
+  </div>
+</section>

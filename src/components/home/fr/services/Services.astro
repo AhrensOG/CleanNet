@@ -1,0 +1,68 @@
+---
+import ServiceCard from "./ServiceCard.astro";
+import {
+  Home,
+  Building2,
+  Layers,
+  Paintbrush,
+  Leaf,
+  Truck,
+} from "@lucide/astro";
+---
+
+<section id="services" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col gap-12">
+    <!-- Texto principal -->
+    <div class="space-y-4 flex flex-col sm:flex-row justify-between">
+      <div>
+        <p class="uppercase text-sm font-medium text-cleannet-blue">
+          Services professionnels à Genève
+        </p>
+        <h2 class="text-4xl font-extrabold text-cleannet-blue leading-tight">
+          Nos services de
+          <span class="relative inline-block">
+            <span class="text-cleannet-orange">nettoyage & rénovation</span>
+            <span
+              class="absolute bottom-0 left-0 w-full h-2 bg-cleannet-gray z-[-1]">
+            </span>
+          </span>
+          pour particuliers et entreprises
+        </h2>
+      </div>
+
+      <div class="max-w-xl space-y-3">
+        <p class="text-cleannet-darkgray text-base leading-relaxed">
+          CleanNet propose des services personnalisés à Genève : nettoyage
+          d'appartements, entretien de bureaux, rénovations, conciergerie et
+          plus encore. Depuis 2002, notre équipe garantit qualité, rapidité et
+          satisfaction.
+        </p>
+        <p class="text-cleannet-darkgray text-base leading-relaxed">
+          Nos experts qualifiés utilisent des techniques modernes pour assurer
+          un environnement impeccable à nos clients résidentiels et
+          professionnels.
+        </p>
+      </div>
+    </div>
+
+    <!-- Tarjetas de servicios -->
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 border-t border-b border-cleannet-gray/30 py-8">
+      <ServiceCard Icon={Home} title="Nettoyage d'appartements" />
+      <ServiceCard Icon={Building2} title="Entretien de bureaux" />
+      <ServiceCard Icon={Layers} title="Ponçage de parquets" />
+      <ServiceCard Icon={Paintbrush} title="Peinture intérieure" />
+      <ServiceCard Icon={Leaf} title="Entretien de jardins" />
+      <ServiceCard Icon={Truck} title="Déménagements Genève" />
+    </div>
+
+    <!-- Botón a página de servicios -->
+    <div class="flex justify-center pt-4">
+      <a
+        href="/fr/services"
+        class="inline-block bg-cleannet-blue hover:bg-[#263a86] text-white font-semibold px-6 py-3 rounded-full text-base shadow-md transition">
+        Voir tous les services
+      </a>
+    </div>
+  </div>
+</section>

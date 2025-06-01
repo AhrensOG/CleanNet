@@ -1,0 +1,55 @@
+---
+import { Phone } from "@lucide/astro";
+---
+
+<section id="about" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    <!-- Dual Image -->
+    <div class="relative w-full">
+      <img
+        src="/home/about/about_1.webp"
+        alt="Cleaning service in Geneva"
+        class="rounded-lg shadow-lg w-full max-w-lg"
+      />
+      <img
+        src="/home/about/about_2.webp"
+        alt="CleanNet employee at work"
+        class="absolute bottom-[-40px] left-[-40px] w-48 md:w-60 rounded-lg border-4 border-white shadow-xl"
+      />
+    </div>
+
+    <!-- Text content -->
+    <div class="space-y-4 text-cleannet-blue">
+      <p class="uppercase text-sm text-cleannet-blue font-medium">About us</p>
+      <h2 class="text-4xl font-extrabold leading-tight">
+        Your <span class="relative inline-block">
+          <span class="text-cleannet-orange">comfort & cleanliness</span>
+          <span
+            class="absolute bottom-0 left-0 w-full h-2 bg-cleannet-gray z-[-1]">
+          </span>
+        </span><br />
+        are our top priority
+      </h2>
+
+      <p class="text-cleannet-darkgray text-base leading-relaxed">
+        Since 2002, CleanNet has been a trusted cleaning company in Geneva,
+        offering expert services for apartments, offices, window cleaning,
+        floors, concierge solutions, and moving assistance. We are committed to
+        providing a clean, healthy and welcoming environment through our
+        experienced and dedicated team.
+      </p>
+
+      <div class="space-y-1 text-sm font-medium">
+        <p class="text-cleannet-blue">MON–FRI 9:00 – 22:00</p>
+        <p class="text-cleannet-blue">SATURDAY 9:00 – 20:00</p>
+      </div>
+
+      <a
+        href="tel:+410796425297"
+        class="inline-flex items-center gap-2 bg-cleannet-orange hover:bg-cleannet-orange/90 text-white font-semibold px-6 py-3 rounded-full transition text-base mt-4 shadow-md">
+        <Phone size={18} />
+        Call: +41 079 642 5297
+      </a>
+    </div>
+  </div>
+</section>

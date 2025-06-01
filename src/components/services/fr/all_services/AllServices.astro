@@ -1,0 +1,219 @@
+---
+import ServiceCard from "./ServiceCard.astro";
+import {
+  Factory,
+  Building,
+  Sofa,
+  Glasses,
+  Move,
+  Brush,
+  Leaf,
+  Wrench,
+  Key,
+  Home,
+  Layout,
+  Hammer,
+  Paintbrush,
+  Package,
+  Boxes,
+  Truck,
+  Flower,
+} from "@lucide/astro";
+---
+
+<section id="all-services" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Titre principal -->
+    <div class="mb-12 text-center">
+      <p class="uppercase text-sm font-medium text-cleannet-blue">
+        Nos Services
+      </p>
+      <h2 class="text-4xl font-extrabold text-cleannet-blue leading-tight">
+        Découvrez tous nos
+        <span class="relative inline-block">
+          <span class="text-cleannet-orange">services professionnels</span>
+          <span
+            class="absolute bottom-0 left-0 w-full h-2 bg-cleannet-gray z-[-1]"
+          ></span>
+        </span>
+      </h2>
+    </div>
+
+    <!-- Grille de services -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-h-[600px] overflow-y-scroll">
+      <!-- Nettoyage Professionnel -->
+      <ServiceCard
+        Icon={Home}
+        title="Nettoyage d'appartements"
+        description="Service de nettoyage complet pour appartements privés, avec attention aux détails et respect de vos espaces de vie."
+        keywords={["nettoyage appartement", "nettoyage logement"]}
+      />
+      <ServiceCard
+        Icon={Building}
+        title="Nettoyage de bureaux"
+        description="Nettoyage régulier ou ponctuel de bureaux pour garantir un environnement de travail propre et sain."
+        keywords={["nettoyage bureaux", "bureau propre"]}
+      />
+      <ServiceCard
+        Icon={Factory}
+        title="Nettoyage de fin de chantier"
+        description="Nettoyage complet après travaux pour livrer des espaces impeccables. Élimination de la poussière, des résidus et des traces de chantier."
+        keywords={["fin de chantier", "nettoyage chantier"]}
+      />
+      <ServiceCard
+        Icon={Home}
+        title="Nettoyage de maisons privées"
+        description="Nettoyage en profondeur de maisons individuelles, incluant sols, vitres et surfaces délicates."
+        keywords={["nettoyage maison", "ménage maison"]}
+      />
+      <ServiceCard
+        Icon={Sofa}
+        title="Nettoyage de moquettes"
+        description="Détachage, nettoyage vapeur et désinfection de moquettes et tapis pour un intérieur sain."
+        keywords={["nettoyage moquette", "nettoyage tapis"]}
+      />
+      <ServiceCard
+        Icon={Glasses}
+        title="Nettoyage de vitres"
+        description="Lavage professionnel de vitres, vitrines et baies vitrées. Intérieur et extérieur, accès simples ou complexes."
+        keywords={["nettoyage vitres", "vitres propres"]}
+      />
+      <ServiceCard
+        Icon={Layout}
+        title="Nettoyage de boiseries & vérandas"
+        description="Nettoyage minutieux de surfaces sensibles : stores, volets, vérandas et boiseries avec produits adaptés."
+        keywords={["nettoyage boiseries", "nettoyage véranda"]}
+      />
+      <ServiceCard
+        Icon={Building}
+        title="Nettoyage de surfaces commerciales"
+        description="Entretien et nettoyage régulier de magasins, halls d'entrée, zones de vente et espaces clients."
+        keywords={["nettoyage commerce", "nettoyage boutique"]}
+      />
+      <ServiceCard
+        Icon={Brush}
+        title="Nettoyage haute pression"
+        description="Élimination des salissures tenaces sur sols extérieurs, façades, murs et équipements industriels."
+        keywords={["nettoyage haute pression", "dépoussiérage façade"]}
+      />
+
+      <!-- Entretien & Conciergerie -->
+      <ServiceCard
+        Icon={Key}
+        title="Femme de ménage"
+        description="Personnel de ménage qualifié pour l'entretien quotidien ou hebdomadaire de vos espaces privés ou professionnels."
+        keywords={["femme de ménage Genève", "entretien maison"]}
+      />
+      <ServiceCard
+        Icon={Building}
+        title="Entretien d’immeubles"
+        description="Entretien des parties communes : escaliers, ascenseurs, halls et locaux techniques avec rigueur et régularité."
+        keywords={["entretien immeuble", "nettoyage copropriété"]}
+      />
+      <ServiceCard
+        Icon={Key}
+        title="Service de conciergerie"
+        description="Services pratiques : gestion des clés, surveillance, petites réparations et accompagnement personnalisé."
+        keywords={["conciergerie Genève", "services immeuble"]}
+      />
+      <ServiceCard
+        Icon={Boxes}
+        title="Préparation d’état des lieux"
+        description="Nettoyage et organisation pour garantir une restitution conforme des logements à louer ou restituer."
+        keywords={["état des lieux", "nettoyage avant location"]}
+      />
+      <ServiceCard
+        Icon={Move}
+        title="Services après déménagement"
+        description="Remise en état après déménagement pour garantir une restitution parfaite des locaux ou logements."
+        keywords={["nettoyage après déménagement", "nettoyage départ"]}
+      />
+
+      <!-- Parquets -->
+      <ServiceCard
+        Icon={Brush}
+        title="Ponçage de parquets"
+        description="Remise à neuf des parquets par ponçage professionnel pour supprimer rayures et usures."
+        keywords={["ponçage parquet", "rénovation parquet"]}
+      />
+      <ServiceCard
+        Icon={Layout}
+        title="Imprégnation et vitrification"
+        description="Protection et finition de parquets après ponçage : vitrificateur, huiles naturelles ou cires adaptées."
+        keywords={["vitrification parquet", "traitement parquet"]}
+      />
+      <ServiceCard
+        Icon={Wrench}
+        title="Entretien spécialisé"
+        description="Entretien régulier de vos parquets en bois pour garantir durabilité, brillance et hygiène."
+        keywords={["entretien parquet", "bois naturel"]}
+      />
+
+      <!-- Rénovation -->
+      <ServiceCard
+        Icon={Paintbrush}
+        title="Peinture intérieure"
+        description="Travaux de peinture murale, plafonds, boiseries pour rafraîchir ou rénover vos intérieurs avec soin."
+        keywords={["peinture intérieure", "rénovation mur"]}
+      />
+      <ServiceCard
+        Icon={Hammer}
+        title="Rénovation complète"
+        description="Rénovation globale d’espaces résidentiels ou professionnels : coordination de corps de métier, qualité garantie."
+        keywords={["rénovation Genève", "travaux complets"]}
+      />
+      <ServiceCard
+        Icon={Wrench}
+        title="Travaux de maçonnerie"
+        description="Réalisation de petits travaux de maçonnerie : cloisons, réparations, finitions pour projets de rénovation."
+        keywords={["maçonnerie intérieure", "travaux maison"]}
+      />
+      <ServiceCard
+        Icon={Layout}
+        title="Pose de carrelages"
+        description="Pose professionnelle de carrelage mural et au sol, toutes pièces et formats confondus."
+        keywords={["pose carrelage", "revêtement sol"]}
+      />
+      <ServiceCard
+        Icon={Layout}
+        title="Pose de parquets"
+        description="Installation de parquets flottants, massifs ou stratifiés avec précision et finitions de qualité."
+        keywords={["pose parquet", "revêtement bois"]}
+      />
+
+      <!-- Espaces extérieurs -->
+      <ServiceCard
+        Icon={Flower}
+        title="Entretien de jardins"
+        description="Tonte, désherbage, taille de haies, entretien saisonnier de vos jardins privés ou partagés."
+        keywords={["jardinage Genève", "entretien extérieur"]}
+      />
+      <ServiceCard
+        Icon={Leaf}
+        title="Nettoyage d'espaces extérieurs"
+        description="Nettoyage de terrasses, allées, façades et mobiliers extérieurs pour un rendu impeccable."
+        keywords={["nettoyage extérieur", "terrasse propre"]}
+      />
+
+      <!-- Déménagement -->
+      <ServiceCard
+        Icon={Truck}
+        title="Service complet de déménagement"
+        description="Organisation, transport, manutention et nettoyage inclus. Service clé en main pour particuliers et entreprises."
+        keywords={["déménagement Genève", "transport meuble"]}
+      />
+      <ServiceCard
+        Icon={Package}
+        title="Aide à l’emballage et déballage"
+        description="Assistance pour l’emballage de vos affaires avec matériel adapté. Protection optimale garantie."
+        keywords={["emballage déménagement", "cartons déménagement"]}
+      />
+      <ServiceCard
+        Icon={Move}
+        title="Transport et manutention"
+        description="Chargement, transport et déchargement de vos biens en toute sécurité et efficacité."
+        keywords={["transport Genève", "manutention déménagement"]}
+      />
+    </div>
+  </div>
+</section>

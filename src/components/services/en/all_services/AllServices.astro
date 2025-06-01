@@ -1,0 +1,220 @@
+---
+import ServiceCard from "./ServiceCard.astro";
+import {
+  Factory,
+  Building,
+  Sofa,
+  Glasses,
+  Move,
+  Brush,
+  Leaf,
+  Wrench,
+  Key,
+  Home,
+  Layout,
+  Hammer,
+  Paintbrush,
+  Package,
+  Boxes,
+  Truck,
+  Flower,
+} from "@lucide/astro";
+---
+
+<section id="all-services" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Main Title -->
+    <div class="mb-12 text-center">
+      <p class="uppercase text-sm font-medium text-cleannet-blue">
+        Our Services
+      </p>
+      <h2 class="text-4xl font-extrabold text-cleannet-blue leading-tight">
+        Discover all our
+        <span class="relative inline-block">
+          <span class="text-cleannet-orange">professional services</span>
+          <span
+            class="absolute bottom-0 left-0 w-full h-2 bg-cleannet-gray z-[-1]"
+          ></span>
+        </span>
+      </h2>
+    </div>
+
+    <!-- Services Grid -->
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-h-[600px] overflow-y-scroll">
+      <!-- Professional Cleaning -->
+      <ServiceCard
+        Icon={Home}
+        title="Apartment Cleaning"
+        description="Complete cleaning service for private apartments, with great attention to detail and care for your living space."
+        keywords={["apartment cleaning", "home cleaning"]}
+      />
+      <ServiceCard
+        Icon={Building}
+        title="Office Cleaning"
+        description="Regular or one-time cleaning to keep your office environment clean and healthy."
+        keywords={["office cleaning", "workplace hygiene"]}
+      />
+      <ServiceCard
+        Icon={Factory}
+        title="Post-Construction Cleaning"
+        description="Thorough cleaning after construction work, removing dust, debris, and building residues."
+        keywords={["post-construction", "site cleaning"]}
+      />
+      <ServiceCard
+        Icon={Home}
+        title="House Cleaning"
+        description="Deep cleaning of private houses including floors, windows, and delicate surfaces."
+        keywords={["house cleaning", "residential cleaning"]}
+      />
+      <ServiceCard
+        Icon={Sofa}
+        title="Carpet Cleaning"
+        description="Stain removal, steam cleaning, and disinfection of carpets and rugs for a healthy interior."
+        keywords={["carpet cleaning", "rug sanitation"]}
+      />
+      <ServiceCard
+        Icon={Glasses}
+        title="Window Cleaning"
+        description="Professional cleaning of windows, shopfronts, and glass walls—interior and exterior."
+        keywords={["window cleaning", "clean glass"]}
+      />
+      <ServiceCard
+        Icon={Layout}
+        title="Woodwork & Veranda Cleaning"
+        description="Detailed cleaning of sensitive areas: blinds, shutters, verandas, and wooden surfaces."
+        keywords={["woodwork cleaning", "veranda cleaning"]}
+      />
+      <ServiceCard
+        Icon={Building}
+        title="Commercial Cleaning"
+        description="Regular cleaning of shops, lobbies, sales areas, and customer spaces."
+        keywords={["store cleaning", "retail cleaning"]}
+      />
+      <ServiceCard
+        Icon={Brush}
+        title="High-Pressure Cleaning"
+        description="Removal of tough dirt on outdoor surfaces, facades, walls, and industrial equipment."
+        keywords={["high-pressure cleaning", "facade cleaning"]}
+      />
+
+      <!-- Maintenance & Concierge -->
+      <ServiceCard
+        Icon={Key}
+        title="Housekeeping Services"
+        description="Qualified personnel for daily or weekly cleaning of private and professional spaces."
+        keywords={["housekeeping Geneva", "home maintenance"]}
+      />
+      <ServiceCard
+        Icon={Building}
+        title="Building Maintenance"
+        description="Maintenance of common areas: stairs, elevators, lobbies, and technical rooms."
+        keywords={["building maintenance", "residential cleaning"]}
+      />
+      <ServiceCard
+        Icon={Key}
+        title="Concierge Services"
+        description="Practical services: key management, monitoring, small repairs, and personalized support."
+        keywords={["concierge Geneva", "building services"]}
+      />
+      <ServiceCard
+        Icon={Boxes}
+        title="Move-In/Out Cleaning"
+        description="Cleaning and preparation to ensure proper condition for rented or returned properties."
+        keywords={["move-out cleaning", "pre-rental cleaning"]}
+      />
+      <ServiceCard
+        Icon={Move}
+        title="Post-Move Services"
+        description="Restoration and cleaning after a move, ensuring the premises are perfectly clean."
+        keywords={["after-move cleaning", "departure cleaning"]}
+      />
+
+      <!-- Wood Floor Treatment -->
+      <ServiceCard
+        Icon={Brush}
+        title="Floor Sanding"
+        description="Professional sanding to renew wood floors and remove scratches and wear."
+        keywords={["floor sanding", "wood floor restoration"]}
+      />
+      <ServiceCard
+        Icon={Layout}
+        title="Impregnation & Sealing"
+        description="Protective finish after sanding using sealers, natural oils, or appropriate waxes."
+        keywords={["floor sealing", "wood treatment"]}
+      />
+      <ServiceCard
+        Icon={Wrench}
+        title="Specialised Maintenance"
+        description="Ongoing care of wooden floors to ensure durability, shine, and hygiene."
+        keywords={["floor maintenance", "natural wood care"]}
+      />
+
+      <!-- Renovation -->
+      <ServiceCard
+        Icon={Paintbrush}
+        title="Interior Painting"
+        description="Wall, ceiling, and woodwork painting to refresh or renovate your interiors."
+        keywords={["interior painting", "wall renovation"]}
+      />
+      <ServiceCard
+        Icon={Hammer}
+        title="Complete Renovation"
+        description="Full renovation for residential or business spaces with coordinated quality work."
+        keywords={["renovation Geneva", "full works"]}
+      />
+      <ServiceCard
+        Icon={Wrench}
+        title="Masonry Work"
+        description="Minor masonry tasks: partitions, repairs, and finishing for renovation projects."
+        keywords={["interior masonry", "home improvement"]}
+      />
+      <ServiceCard
+        Icon={Layout}
+        title="Tile Installation"
+        description="Professional floor and wall tile installation in any room and format."
+        keywords={["tile installation", "floor tiling"]}
+      />
+      <ServiceCard
+        Icon={Layout}
+        title="Parquet Installation"
+        description="Installation of floating, solid or laminated parquet with quality finishes."
+        keywords={["parquet installation", "wood flooring"]}
+      />
+
+      <!-- Outdoor Spaces -->
+      <ServiceCard
+        Icon={Flower}
+        title="Garden Maintenance"
+        description="Lawn mowing, weeding, hedge trimming, and seasonal maintenance of private or shared gardens."
+        keywords={["gardening Geneva", "outdoor care"]}
+      />
+      <ServiceCard
+        Icon={Leaf}
+        title="Outdoor Cleaning"
+        description="Cleaning of terraces, paths, facades, and outdoor furniture for spotless results."
+        keywords={["outdoor cleaning", "clean patio"]}
+      />
+
+      <!-- Moving Services -->
+      <ServiceCard
+        Icon={Truck}
+        title="Full Moving Service"
+        description="Organization, transport, handling, and cleaning included. Turnkey service for homes and businesses."
+        keywords={["moving Geneva", "furniture transport"]}
+      />
+      <ServiceCard
+        Icon={Package}
+        title="Packing & Unpacking Help"
+        description="Assistance with packing your belongings using proper materials. Guaranteed protection."
+        keywords={["moving packing", "box packing"]}
+      />
+      <ServiceCard
+        Icon={Move}
+        title="Transport & Handling"
+        description="Loading, transporting, and unloading your items safely and efficiently."
+        keywords={["transport Geneva", "moving assistance"]}
+      />
+    </div>
+  </div>
+</section>

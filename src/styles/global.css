@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Satoshi", sans-serif;
+
+  --color-cleannet-blue: #3349ff;
+  --color-cleannet-orange: #ea580c;
+  --color-cleannet-gray: #bdbac1;
+  --color-cleannet-darkgray: #65697c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
