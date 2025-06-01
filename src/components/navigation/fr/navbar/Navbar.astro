@@ -1,25 +1,28 @@
 ---
-import { Phone, Menu } from "@lucide/astro";
+import { Phone, Menu, X } from "@lucide/astro";
 ---
 
-<!-- Barre supérieure avec téléphone -->
+<!-- Barre supérieure -->
 <div
-  class="bg-[#3349FF] h-11 text-white text-center text-xs font-bold md:text-xl py-2 px-4 flex justify-center items-center gap-2">
+  class="bg-[#3349FF] h-auto md:h-11 text-white text-xs md:text-xl font-bold py-2 px-4 flex flex-col md:flex-row justify-center items-center gap-1 md:gap-2 text-center">
   <span>Besoin d'une aide rapide pour le nettoyage ?</span>
-  <Phone size={20} fill="#fff" class="text-white" />
-  <span>Appelez-nous : +41 079 642 5297</span>
+  <div class="flex items-center gap-2">
+    <Phone size={20} class="text-white" />
+    <span>Appelez-nous : +41 079 642 5297</span>
+  </div>
 </div>
 
-<!-- Navigation principale -->
+<!-- Header avec menu responsive -->
 <header
-  class="absolute w-full top-11 z-10 px-6 sm:px-16 py-4 flex justify-between items-center bg-transparent">
+  x-data="{ open: false }"
+  class="relative z-50 w-full bg-white px-6 sm:px-16 py-4 flex justify-between items-center shadow-md">
   <!-- Logo -->
   <div class="flex items-center gap-2">
     <a href="/fr">
       <img
         src="/cleannet.png"
         alt="Logo CleanNet"
-        class="w-36 h-auto rounded-md object-contain"
+        class="w-32 sm:w-36 h-auto object-contain rounded-md"
       />
     </a>
   </div>
@@ -33,18 +36,16 @@ import { Phone, Menu } from "@lucide/astro";
   </nav>
 
   <!-- CTA + Sélecteur de langue -->
-  <div class="flex items-center gap-4">
-    <!-- Bouton Rendez-vous -->
+  <div class="hidden md:flex items-center gap-4">
     <a
       href="https://calendly.com/cleannet1963/30min"
       target="_blank"
       rel="noopener noreferrer"
       onclick="trackConversion()"
-      class="bg-cleannet-orange hidden sm:block text-white px-5 py-2 rounded-full font-semibold hover:bg-orange-600 transition text-sm md:text-base">
+      class="bg-cleannet-orange text-white px-5 py-2 rounded-full font-semibold hover:bg-orange-600 transition text-sm md:text-base">
       Prendre rendez-vous
     </a>
 
-    <!-- Sélecteur de langue -->
     <select
       onchange="location = this.value"
       class="text-sm md:text-base font-semibold border border-gray-300 rounded-md px-3 py-1 bg-white text-cleannet-orange focus:outline-none"
@@ -54,8 +55,41 @@ import { Phone, Menu } from "@lucide/astro";
     </select>
   </div>
 
-  <!-- Bouton menu mobile -->
-  <button class="md:hidden ml-4">
-    <Menu size={24} class="text-[#33499B]" />
+  <!-- Burger icon -->
+  <button class="md:hidden ml-auto" @click="open = !open">
+    <Menu size={28} class="text-[#33499B]" x-show="!open" />
+    <X size={28} class="text-[#33499B]" x-show="open" />
   </button>
+
+  <!-- Mobile menu -->
+  <div
+    x-show="open"
+    x-transition
+    class="absolute top-full left-0 w-full bg-white shadow-lg md:hidden flex flex-col items-center text-cleannet-blue font-bold text-base py-4 space-y-4">
+    <a href="/fr" class="hover:text-[#EB6C26]" @click="open = false">Accueil</a>
+    <a href="/fr#about" class="hover:text-[#EB6C26]" @click="open = false"
+      >À propos</a
+    >
+    <a href="/fr/services" class="hover:text-[#EB6C26]" @click="open = false"
+      >Services</a
+    >
+    <a href="/fr/contact" class="hover:text-[#EB6C26]" @click="open = false"
+      >Contact</a
+    >
+    <a
+      href="https://calendly.com/cleannet1963/30min"
+      target="_blank"
+      rel="noopener noreferrer"
+      onclick="trackConversion()"
+      class="bg-cleannet-orange text-white px-5 py-2 rounded-full font-semibold hover:bg-orange-600 transition">
+      Prendre rendez-vous
+    </a>
+    <select
+      onchange="location = this.value"
+      class="text-sm font-semibold border border-gray-300 rounded-md px-3 py-1 bg-white text-cleannet-orange focus:outline-none"
+      aria-label="Sélection de langue">
+      <option value="/fr" selected>FR</option>
+      <option value="/en">EN</option>
+    </select>
+  </div>
 </header>

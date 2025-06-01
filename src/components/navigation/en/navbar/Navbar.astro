@@ -1,30 +1,33 @@
 ---
-import { Phone, Menu } from "@lucide/astro";
+import { Phone, Menu, X } from "@lucide/astro";
 ---
 
-<!-- Top bar with phone contact -->
+<!-- Top bar -->
 <div
-  class="bg-[#3349FF] h-11 text-white text-center text-xs font-bold md:text-xl py-2 px-4 flex justify-center items-center gap-2">
-  <span>Need fast help with cleaning?</span>
-  <Phone size={20} fill="#fff" class="text-white" />
-  <span>Call us: +41 079 642 5297</span>
+  class="bg-[#3349FF] h-auto md:h-11 text-white text-xs md:text-xl font-bold py-2 px-4 flex flex-col md:flex-row justify-center items-center gap-1 md:gap-2 text-center">
+  <span>Need fast cleaning assistance?</span>
+  <div class="flex items-center gap-2">
+    <Phone size={20} class="text-white" />
+    <span>Call us: +41 079 642 5297</span>
+  </div>
 </div>
 
-<!-- Main Navigation -->
+<!-- Header with responsive menu -->
 <header
-  class="absolute w-full top-11 z-10 px-6 sm:px-16 py-4 flex justify-between items-center bg-transparent">
+  x-data="{ open: false }"
+  class="relative z-50 w-full bg-white px-6 sm:px-16 py-4 flex justify-between items-center shadow-md">
   <!-- Logo -->
   <div class="flex items-center gap-2">
     <a href="/en">
       <img
         src="/cleannet.png"
-        alt="CleanNet logo - Geneva cleaning company"
-        class="w-36 h-auto rounded-md object-contain"
+        alt="CleanNet Logo"
+        class="w-32 sm:w-36 h-auto object-contain rounded-md"
       />
     </a>
   </div>
 
-  <!-- Desktop Navigation Menu -->
+  <!-- Desktop navigation -->
   <nav class="hidden md:flex text-lg gap-6 text-cleannet-blue font-bold">
     <a href="/en" class="hover:text-[#EB6C26] transition">Home</a>
     <a href="/en#about" class="hover:text-[#EB6C26] transition">About</a>
@@ -32,30 +35,61 @@ import { Phone, Menu } from "@lucide/astro";
     <a href="/en/contact" class="hover:text-[#EB6C26] transition">Contact</a>
   </nav>
 
-  <!-- CTA + Language Selector -->
-  <div class="flex items-center gap-4">
-    <!-- Book Appointment Button -->
+  <!-- CTA + Language selector -->
+  <div class="hidden md:flex items-center gap-4">
     <a
       href="https://calendly.com/cleannet1963/30min"
       target="_blank"
       rel="noopener noreferrer"
       onclick="trackConversion()"
-      class="bg-cleannet-orange hidden sm:block text-white px-5 py-2 rounded-full font-semibold hover:bg-orange-600 transition text-sm md:text-base">
-      Book an Appointment
+      class="bg-cleannet-orange text-white px-5 py-2 rounded-full font-semibold hover:bg-orange-600 transition text-sm md:text-base">
+      Book Appointment
     </a>
 
-    <!-- Language Switcher -->
     <select
       onchange="location = this.value"
       class="text-sm md:text-base font-semibold border border-gray-300 rounded-md px-3 py-1 bg-white text-cleannet-orange focus:outline-none"
-      aria-label="Language selector">
-      <option value="/fr">FR</option>
+      aria-label="Language selection">
       <option value="/en" selected>EN</option>
+      <option value="/fr">FR</option>
     </select>
   </div>
 
-  <!-- Mobile Menu Button -->
-  <button class="md:hidden ml-4" aria-label="Open menu">
-    <Menu size={24} class="text-[#33499B]" />
+  <!-- Burger icon -->
+  <button class="md:hidden ml-auto" @click="open = !open">
+    <Menu size={28} class="text-[#33499B]" x-show="!open" />
+    <X size={28} class="text-[#33499B]" x-show="open" />
   </button>
+
+  <!-- Mobile menu -->
+  <div
+    x-show="open"
+    x-transition
+    class="absolute top-full left-0 w-full bg-white shadow-lg md:hidden flex flex-col items-center text-cleannet-blue font-bold text-base py-4 space-y-4">
+    <a href="/en" class="hover:text-[#EB6C26]" @click="open = false">Home</a>
+    <a href="/en#about" class="hover:text-[#EB6C26]" @click="open = false"
+      >About</a
+    >
+    <a href="/en/services" class="hover:text-[#EB6C26]" @click="open = false"
+      >Services</a
+    >
+    <a href="/en/contact" class="hover:text-[#EB6C26]" @click="open = false"
+      >Contact</a
+    >
+    <a
+      href="https://calendly.com/cleannet1963/30min"
+      target="_blank"
+      rel="noopener noreferrer"
+      onclick="trackConversion()"
+      class="bg-cleannet-orange text-white px-5 py-2 rounded-full font-semibold hover:bg-orange-600 transition">
+      Book Appointment
+    </a>
+    <select
+      onchange="location = this.value"
+      class="text-sm font-semibold border border-gray-300 rounded-md px-3 py-1 bg-white text-cleannet-orange focus:outline-none"
+      aria-label="Language selection">
+      <option value="/en" selected>EN</option>
+      <option value="/fr">FR</option>
+    </select>
+  </div>
 </header>
