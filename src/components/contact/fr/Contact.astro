@@ -3,7 +3,8 @@ import { Phone } from "@lucide/astro";
 ---
 
 <main class="py-28">
-  <section class="px-6 py-20 max-w-5xl mx-auto text-center space-y-6 text-cleannet-blue">
+  <section
+    class="px-6 py-20 max-w-5xl mx-auto text-center space-y-6 text-cleannet-blue">
     <h1 class="text-4xl md:text-5xl font-extrabold mb-6">Contact</h1>
     <p class="text-lg text-gray-700 mb-4">
       Cleannet Victor Gonzalez – 70, av. Communes Réunies, 1212 Grand Lancy,
@@ -19,6 +20,8 @@ import { Phone } from "@lucide/astro";
       <a
         href="https://wa.me/41796425297?text=Bonjour%20CleanNet%2C%20je%20souhaite%20demander%20un%20devis."
         target="_blank"
+        rel="noopener noreferrer"
+        onclick="trackConversion()"
         class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-full transition text-lg shadow-lg">
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
           <path
@@ -40,6 +43,8 @@ import { Phone } from "@lucide/astro";
       <a
         href="https://calendly.com/cleannet1963/30min"
         target="_blank"
+        rel="noopener noreferrer"
+        onclick="trackConversion()"
         class="inline-flex items-center gap-2 border border-cleannet-blue text-white bg-cleannet-blue hover:bg-cleannet-blue/90 font-semibold px-6 py-3 rounded-full transition text-lg shadow-md">
         Réserver un rendez-vous
       </a>
