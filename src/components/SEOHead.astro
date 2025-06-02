@@ -2,21 +2,19 @@
 import { seoMeta } from "../metadata/SEOMeta";
 import { buildHreflangs, getLangFromPath } from "../scripts/lang";
 
-const pathname = Astro.url.pathname;
+const { pathname = "/" } = Astro.props;
 const lang = getLangFromPath(pathname);
 const hreflangs = buildHreflangs(pathname);
 const canonicalUrl = `https://www.clean-net.ch${pathname}`;
 
-// Obtener metadatos desde el objeto centralizado
 const { title, description, ogImage } = seoMeta[pathname] || {
-  title: "Clean Net – Nettoyage professionnel à Genève",
-  description:
-    "Entreprise de nettoyage en Suisse. Services pour particuliers et entreprises.",
+  title: "Clean Net – Nettoyage et Services à Genève",
+  description: "Entreprise de nettoyage professionnel en Suisse romande.",
   ogImage: undefined,
 };
 ---
 
-<!-- SEO Head -->
+<!-- Head metatags -->
 <title>{title}</title>
 <meta name="description" content={description} />
 <meta property="og:title" content={title} />
@@ -24,7 +22,6 @@ const { title, description, ogImage } = seoMeta[pathname] || {
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 
-<!-- SEO opcional futuro -->
 {
   ogImage && (
     <>
