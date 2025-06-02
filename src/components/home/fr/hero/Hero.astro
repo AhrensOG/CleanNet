@@ -2,16 +2,34 @@
 import { Phone } from "@lucide/astro";
 ---
 
+<!-- Préchargement de l'image de fond -->
+<link
+  rel="preload"
+  as="image"
+  href="/home/hero/banner.webp"
+  type="image/webp"
+/>
+
 <section
-  class="relative w-full min-h-[800px] sm:min-h-[700px] pt-11 bg-cover bg-center text-cleannet-blue flex items-center"
-  style="background-image: url('/home/hero/banner.jpg');">
+  class="relative w-full min-h-[800px] sm:min-h-[700px] pt-11 text-cleannet-blue flex items-center">
+  <!-- Image pour améliorer le LCP -->
+  <img
+    src="/home/hero/banner.webp"
+    alt="Entreprise de nettoyage professionnel à Genève, Lancy et Carouge depuis 2002"
+    class="absolute inset-0 w-full h-full object-cover z-[-1]"
+    loading="eager"
+    fetchpriority="high"
+    width="1920"
+    height="1080"
+  />
+
   <!-- Overlay -->
   <div class="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
 
-  <!-- Content -->
+  <!-- Contenu -->
   <div
     class="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
-    <!-- Text section -->
+    <!-- Section texte -->
     <div class="flex-1 text-center md:text-left space-y-5">
       <p
         class="uppercase text-sm tracking-widest font-semibold text-cleannet-darkgray">
@@ -36,10 +54,9 @@ import { Phone } from "@lucide/astro";
         personnalisé.
       </p>
 
-      <!-- Call to action -->
+      <!-- Appels à l'action -->
       <div
         class="mt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-        <!-- Call button -->
         <a
           href="tel:+410796425297"
           title="Contactez-nous par appel"
@@ -48,7 +65,6 @@ import { Phone } from "@lucide/astro";
           Appeler : +41 079 642 5297
         </a>
 
-        <!-- Calendly button -->
         <a
           href="https://calendly.com/cleannet1963/30min"
           target="_blank"

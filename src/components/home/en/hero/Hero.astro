@@ -2,11 +2,30 @@
 import { Phone } from "@lucide/astro";
 ---
 
+<!-- Preload imagen hero -->
+<link
+  rel="preload"
+  as="image"
+  href="/home/hero/banner.webp"
+  type="image/webp"
+/>
+
 <section
   class="relative w-full min-h-[800px] sm:min-h-[700px] pt-11 bg-cover bg-center text-cleannet-blue flex items-center"
-  style="background-image: url('/home/hero/banner.jpg');">
+  style="background-image: url('/home/hero/banner.webp');">
   <!-- Overlay -->
   <div class="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
+
+  <!-- Imagen visible para mejorar LCP (SEO + Web Vitals) -->
+  <img
+    src="/home/hero/banner.webp"
+    alt="Clean Net – Cleaning company in Geneva, Lancy and Carouge since 2002"
+    class="absolute inset-0 w-full h-full object-cover z-[-1]"
+    loading="eager"
+    fetchpriority="high"
+    width="1920"
+    height="1080"
+  />
 
   <!-- Content -->
   <div
@@ -39,7 +58,6 @@ import { Phone } from "@lucide/astro";
       <!-- Call to action -->
       <div
         class="mt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-        <!-- Call button -->
         <a
           href="tel:+410796425297"
           title="Call us"
@@ -48,7 +66,6 @@ import { Phone } from "@lucide/astro";
           Call: +41 079 642 5297
         </a>
 
-        <!-- Calendly button -->
         <a
           href="https://calendly.com/cleannet1963/30min"
           target="_blank"
