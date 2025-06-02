@@ -1,6 +1,7 @@
 ---
 import Footer from "../../../components/navigation/fr/footer/Footer.astro";
 import Navbar from "../../../components/navigation/fr/navbar/Navbar.astro";
+import SEOHead from "../../../components/SEOHead.astro";
 import WhatsAppButton from "../../../components/WhatsAppButton.astro";
 import "../../../styles/global.css";
 ---
@@ -8,11 +9,11 @@ import "../../../styles/global.css";
 <!doctype html>
 <html lang="fr">
   <head>
+    <SEOHead />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Clean Net – Nettoyage Professionnel</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -30,15 +31,11 @@ import "../../../styles/global.css";
     <!-- Alpine.js -->
     <script is:inline src="https://cdn.jsdelivr.net/npm/alpinejs" defer
     ></script>
-
     <script src="/scripts/convertion.js" is:inline></script>
   </head>
   <body class="min-h-screen bg-white antialiased">
-    <!-- Navbar global -->
     <Navbar />
-    <!-- Contenu de la page -->
     <slot />
-    <!-- Footer global -->
     <Footer />
     <WhatsAppButton />
   </body>
