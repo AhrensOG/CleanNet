@@ -2,26 +2,32 @@
 import { seoMeta } from "../metadata/SEOMeta";
 import { buildHreflangs, getLangFromPath } from "../scripts/lang";
 
+// Permitir pathname desde props para evitar errores en preview/build
 const { pathname = "/" } = Astro.props;
+
 const lang = getLangFromPath(pathname);
 const hreflangs = buildHreflangs(pathname);
 const canonicalUrl = `https://www.clean-net.ch${pathname}`;
 
-const { title, description, ogImage } = seoMeta[pathname] || {
+const { title, description, ogImage, keywords } = seoMeta[pathname] || {
   title: "Clean Net – Nettoyage et Services à Genève",
   description: "Entreprise de nettoyage professionnel en Suisse romande.",
   ogImage: undefined,
+  keywords: "nettoyage, services de nettoyage, Genève, conciergerie",
 };
 ---
 
-<!-- Head metatags -->
+<!-- SEO esencial -->
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Clean Net" />
+<meta name="publisher" content="Clean Net" />
+
+<!-- Open Graph -->
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
-
 {
   ogImage && (
     <>
@@ -30,7 +36,10 @@ const { title, description, ogImage } = seoMeta[pathname] || {
     </>
   )
 }
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
 
+<!-- Canonical y hreflang -->
 <link rel="canonical" href={canonicalUrl} />
 {
   hreflangs.map(({ code, url }) => (

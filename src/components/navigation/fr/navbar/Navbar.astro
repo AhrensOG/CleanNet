@@ -18,21 +18,22 @@ import { Phone, Menu, X } from "@lucide/astro";
   class="relative z-50 w-full bg-white px-6 sm:px-16 py-4 flex justify-between items-center shadow-md">
   <!-- Logo -->
   <div class="flex items-center gap-2">
-    <a href="/fr">
+    <a href="/fr" title="Accueil">
       <img
         src="/cleannet.png"
         alt="Logo CleanNet"
         class="w-32 sm:w-36 h-auto object-contain rounded-md"
+        title="CleanNet logo - Geneva cleaning company"
       />
     </a>
   </div>
 
   <!-- Menu de navigation desktop -->
   <nav class="hidden md:flex text-lg gap-6 text-cleannet-blue font-bold">
-    <a href="/fr" class="hover:text-[#EB6C26] transition">Accueil</a>
-    <a href="/fr#about" class="hover:text-[#EB6C26] transition">À propos</a>
-    <a href="/fr/services" class="hover:text-[#EB6C26] transition">Services</a>
-    <a href="/fr/contact" class="hover:text-[#EB6C26] transition">Contact</a>
+    <a href="/fr" title="Accueil" class="hover:text-[#EB6C26] transition">Accueil</a>
+    <a href="/fr#about" title="Nos valeurs" class="hover:text-[#EB6C26] transition">À propos</a>
+    <a href="/fr/services" title="Tous nos services" class="hover:text-[#EB6C26] transition">Services</a>
+    <a href="/fr/contact" title="Contact" class="hover:text-[#EB6C26] transition">Contact</a>
   </nav>
 
   <!-- CTA + Sélecteur de langue -->
@@ -41,6 +42,7 @@ import { Phone, Menu, X } from "@lucide/astro";
       href="https://calendly.com/cleannet1963/30min"
       target="_blank"
       rel="noopener noreferrer"
+      title="Prendre rendez-vous"
       onclick="trackConversion()"
       class="bg-cleannet-orange text-white px-5 py-2 rounded-full font-semibold hover:bg-orange-600 transition text-sm md:text-base">
       Prendre rendez-vous
@@ -66,20 +68,21 @@ import { Phone, Menu, X } from "@lucide/astro";
     x-show="open"
     x-transition
     class="absolute top-full left-0 w-full bg-white shadow-lg md:hidden flex flex-col items-center text-cleannet-blue font-bold text-base py-4 space-y-4">
-    <a href="/fr" class="hover:text-[#EB6C26]" @click="open = false">Accueil</a>
+    <a href="/fr" title="Accueil" class="hover:text-[#EB6C26]" @click="open = false">Accueil</a>
     <a href="/fr#about" class="hover:text-[#EB6C26]" @click="open = false"
       >À propos</a
     >
-    <a href="/fr/services" class="hover:text-[#EB6C26]" @click="open = false"
+    <a href="/fr/services" title="Tous nos services" class="hover:text-[#EB6C26]" @click="open = false"
       >Services</a
     >
-    <a href="/fr/contact" class="hover:text-[#EB6C26]" @click="open = false"
+    <a href="/fr/contact" title="Contact" class="hover:text-[#EB6C26]" @click="open = false"
       >Contact</a
     >
     <a
       href="https://calendly.com/cleannet1963/30min"
       target="_blank"
       rel="noopener noreferrer"
+      title="Prendre rendez-vous"
       onclick="trackConversion()"
       class="bg-cleannet-orange text-white px-5 py-2 rounded-full font-semibold hover:bg-orange-600 transition">
       Prendre rendez-vous

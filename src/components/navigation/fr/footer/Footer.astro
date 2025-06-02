@@ -7,8 +7,13 @@ const currentYear = new Date().getFullYear();
     <!-- Logo et description -->
     <div class="space-y-4">
       <div class="flex items-center gap-2">
-        <a href="/fr">
-          <img src="/cleannet.png" alt="Logo CleanNet" class="w-36 h-20" />
+        <a href="/fr" title="Accueil">
+          <img
+            src="/cleannet.png"
+            alt="Logo CleanNet"
+            class="w-36 h-20"
+            title="CleanNet logo - Geneva cleaning company"
+          />
         </a>
       </div>
       <p class="text-sm text-[#BDBAC1]">
@@ -21,10 +26,23 @@ const currentYear = new Date().getFullYear();
     <div>
       <h4 class="text-white font-semibold mb-4">Entreprise</h4>
       <ul class="space-y-2 text-sm text-[#BDBAC1]">
-        <li><a href="/fr" class="hover:text-white">Accueil</a></li>
-        <li><a href="/fr/services" class="hover:text-white">Services</a></li>
-        <li><a href="/fr/#about" class="hover:text-white">À propos</a></li>
-        <li><a href="/fr/contact" class="hover:text-white">Contact</a></li>
+        <li>
+          <a href="/fr" title="Accueil" class="hover:text-white">Accueil</a>
+        </li>
+        <li>
+          <a
+            href="/fr/services"
+            title="Tous nos services"
+            class="hover:text-white">Services</a>
+        </li>
+        <li>
+          <a href="/fr/#about" title="Nos valeurs" class="hover:text-white"
+            >À propos</a>
+        </li>
+        <li>
+          <a href="/fr/contact" title="Contact" class="hover:text-white"
+            >Contact</a>
+        </li>
       </ul>
     </div>
 
@@ -33,19 +51,32 @@ const currentYear = new Date().getFullYear();
       <h4 class="text-white font-semibold mb-4">Nos services</h4>
       <ul class="space-y-2 text-sm text-[#BDBAC1]">
         <li>
-          <a href="/fr/services" class="hover:text-white"
-            >Nettoyage résidentiel</a
+          <a
+            href="/fr/services"
+            title="Tous nos services"
+            class="hover:text-white">Nettoyage résidentiel</a
           >
         </li>
         <li>
-          <a href="/fr/services" class="hover:text-white">Nettoyage de vitres</a
+          <a
+            href="/fr/services"
+            title="Tous nos services"
+            class="hover:text-white">Nettoyage de vitres</a
           >
         </li>
         <li>
-          <a href="/fr/services" class="hover:text-white">Désinsectisation</a>
+          <a
+            href="/fr/services"
+            title="Tous nos services"
+            class="hover:text-white">Désinsectisation</a
+          >
         </li>
         <li>
-          <a href="/fr/services" class="hover:text-white">Entretien des sols</a>
+          <a
+            href="/fr/services"
+            title="Tous nos services"
+            class="hover:text-white">Entretien des sols</a
+          >
         </li>
       </ul>
     </div>
@@ -62,6 +93,7 @@ const currentYear = new Date().getFullYear();
         href="https://wa.me/41796425297?text=Bonjour%20CleanNet%2C%20je%20souhaite%20obtenir%20un%20devis."
         target="_blank"
         rel="noopener noreferrer"
+        title="Contactez-nous sur WhatsApp"
         onclick="trackConversion()"
         class="inline-block bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md transition">
         💬 Discuter sur WhatsApp

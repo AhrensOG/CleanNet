@@ -18,21 +18,32 @@ import { Phone, Menu, X } from "@lucide/astro";
   class="relative z-50 w-full bg-white px-6 sm:px-16 py-4 flex justify-between items-center shadow-md">
   <!-- Logo -->
   <div class="flex items-center gap-2">
-    <a href="/en">
+    <a href="/en" title="Home">
       <img
         src="/cleannet.png"
         alt="CleanNet Logo"
         class="w-32 sm:w-36 h-auto object-contain rounded-md"
+        title="CleanNet logo - Geneva cleaning company"
       />
     </a>
   </div>
 
   <!-- Desktop navigation -->
   <nav class="hidden md:flex text-lg gap-6 text-cleannet-blue font-bold">
-    <a href="/en" class="hover:text-[#EB6C26] transition">Home</a>
-    <a href="/en#about" class="hover:text-[#EB6C26] transition">About</a>
-    <a href="/en/services" class="hover:text-[#EB6C26] transition">Services</a>
-    <a href="/en/contact" class="hover:text-[#EB6C26] transition">Contact</a>
+    <a href="/en" title="Home" class="hover:text-[#EB6C26] transition">Home</a>
+    <a href="/en#about" title="About" class="hover:text-[#EB6C26] transition"
+      >About</a
+    >
+    <a
+      href="/en/services"
+      title="View All Services"
+      class="hover:text-[#EB6C26] transition">Services</a
+    >
+    <a
+      href="/en/contact"
+      title="Contact"
+      class="hover:text-[#EB6C26] transition">Contact</a
+    >
   </nav>
 
   <!-- CTA + Language selector -->
@@ -41,6 +52,7 @@ import { Phone, Menu, X } from "@lucide/astro";
       href="https://calendly.com/cleannet1963/30min"
       target="_blank"
       rel="noopener noreferrer"
+      title="Book an appointment"
       onclick="trackConversion()"
       class="bg-cleannet-orange text-white px-5 py-2 rounded-full font-semibold hover:bg-orange-600 transition text-sm md:text-base">
       Book Appointment
@@ -66,20 +78,35 @@ import { Phone, Menu, X } from "@lucide/astro";
     x-show="open"
     x-transition
     class="absolute top-full left-0 w-full bg-white shadow-lg md:hidden flex flex-col items-center text-cleannet-blue font-bold text-base py-4 space-y-4">
-    <a href="/en" class="hover:text-[#EB6C26]" @click="open = false">Home</a>
-    <a href="/en#about" class="hover:text-[#EB6C26]" @click="open = false"
-      >About</a
+    <a
+      href="/en"
+      title="Home"
+      class="hover:text-[#EB6C26]"
+      @click="open = false">Home</a
     >
-    <a href="/en/services" class="hover:text-[#EB6C26]" @click="open = false"
-      >Services</a
+    <a
+      href="/en#about"
+      title="About"
+      class="hover:text-[#EB6C26]"
+      @click="open = false">About</a
     >
-    <a href="/en/contact" class="hover:text-[#EB6C26]" @click="open = false"
-      >Contact</a
+    <a
+      href="/en/services"
+      title="View All Services"
+      class="hover:text-[#EB6C26]"
+      @click="open = false">Services</a
+    >
+    <a
+      href="/en/contact"
+      title="Contact"
+      class="hover:text-[#EB6C26]"
+      @click="open = false">Contact</a
     >
     <a
       href="https://calendly.com/cleannet1963/30min"
       target="_blank"
       rel="noopener noreferrer"
+      title="Book an appointment"
       onclick="trackConversion()"
       class="bg-cleannet-orange text-white px-5 py-2 rounded-full font-semibold hover:bg-orange-600 transition">
       Book Appointment
