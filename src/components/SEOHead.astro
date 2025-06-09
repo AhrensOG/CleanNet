@@ -8,11 +8,12 @@ const { pathname = "/" } = Astro.props;
 const lang = getLangFromPath(pathname);
 const hreflangs = buildHreflangs(pathname);
 const canonicalUrl = `https://www.clean-net.ch${pathname}`;
+const is404 = pathname.includes("/404");
 
 const { title, description, ogImage, keywords } = seoMeta[pathname] || {
   title: "Clean Net – Nettoyage et Services à Genève",
   description: "Entreprise de nettoyage professionnel en Suisse romande.",
-  ogImage: undefined,
+  ogImage: "https://www.clean-net.ch/favicon.svg",
   keywords: "nettoyage, services de nettoyage, Genève, conciergerie",
 };
 ---
@@ -21,7 +22,7 @@ const { title, description, ogImage, keywords } = seoMeta[pathname] || {
 <title>{title}</title>
 <meta name="description" content={description} />
 <meta name="keywords" content={keywords} />
-<meta name="robots" content="index, follow" />
+<meta name="robots" content={is404 ? "noindex, nofollow" : "index, follow"} />
 <meta name="author" content="Clean Net" />
 <meta name="publisher" content="Clean Net" />
 

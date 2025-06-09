@@ -1,7 +1,7 @@
 type MetaInfo = {
   title: string;
   description: string;
-  ogImage?: string;
+  ogImage: string;
   keywords?: string;
 };
 
@@ -53,5 +53,19 @@ export const seoMeta: Record<string, MetaInfo> = {
     ogImage: "https://www.clean-net.ch/favicon.svg",
     keywords:
       "contact Clean Net Geneva, cleaning company contact, request quote cleaning services Geneva, free quote cleaning",
+  },
+
+  // 404 //
+  "/fr/404": {
+    title: "Page non trouvée – Clean Net",
+    description: "La page que vous recherchez n'existe pas ou a été déplacée.",
+    ogImage: "https://www.clean-net.ch/favicon.svg",
+    keywords: "404, page introuvable, erreur, Clean Net",
+  },
+  "/en/404": {
+    title: "Page Not Found – Clean Net",
+    description: "The page you are looking for doesn't exist or has been moved.",
+    ogImage: "https://www.clean-net.ch/favicon.svg",
+    keywords: "404, not found, error page, Clean Net",
   },
 };
