@@ -2,9 +2,10 @@
 interface Props {
   Icon: any;
   title: string;
+  link: string;
 }
 
-const { Icon, title } = Astro.props;
+const { Icon, title, link } = Astro.props;
 ---
 
 <div
@@ -13,5 +14,5 @@ const { Icon, title } = Astro.props;
     <Icon class="w-6 h-6" />
   </div>
   <h3 class="text-lg font-semibold text-[#111827]">{title}</h3>
-  <span class="text-[#33499B] text-xl">→</span>
+  <a href={link} target="_blank" class="text-[#33499B] text-xl">→</a>
 </div>
