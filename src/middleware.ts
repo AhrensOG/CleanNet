@@ -4,11 +4,15 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const url = new URL(context.request.url);
   const pathname = url.pathname;
 
+  const passthroughPaths = ["/robots.txt", "/sitemap.xml", "/sitemap-index.xml"];
+  if (passthroughPaths.includes(pathname)) {
+    return next();
+  }
+
   const supported = ["fr", "en"];
   const acceptLanguage = context.request.headers.get("accept-language") || "";
   const headerLang = acceptLanguage.split(",")[0]?.split("-")[0]?.toLowerCase();
 
-  // Leer cookie (si existe)
   const cookieLang = context.cookies.get("preferred_lang")?.value;
   const isValidCookieLang = cookieLang && supported.includes(cookieLang);
   const lang = isValidCookieLang

@@ -3,7 +3,7 @@ export async function GET() {
     `User-agent: *
 Allow: /
 
-Sitemap: https://www.clean-net.ch/sitemap.xml
+Sitemap: https://www.clean-net.ch/sitemap-index.xml
 `,
     {
       headers: {
