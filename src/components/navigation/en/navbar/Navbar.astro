@@ -5,11 +5,11 @@ import { Phone, Menu, X } from "@lucide/astro";
 <!-- Top bar -->
 <div
   class="bg-[#3349FF] h-auto md:h-11 text-white text-xs md:text-xl font-bold py-2 px-4 flex flex-col md:flex-row justify-center items-center gap-1 md:gap-2 text-center">
-  <span>Need fast cleaning assistance?</span>
+  <!-- <span>Need fast cleaning assistance?</span>
   <div class="flex items-center gap-2">
     <Phone size={20} class="text-white" />
     <span>Call us: +41 079 642 5297</span>
-  </div>
+  </div> -->
 </div>
 
 <!-- Header with responsive menu -->
@@ -49,13 +49,13 @@ import { Phone, Menu, X } from "@lucide/astro";
   <!-- CTA + Language selector -->
   <div class="hidden md:flex items-center gap-4">
     <a
-      href="https://calendly.com/cleannet1963/30min"
+      href="https://wa.me/41766240598?text=Bonjour%20CleanNet%2C%20je%20souhaite%20demander%20un%20devis"
       target="_blank"
       rel="noopener noreferrer"
       title="Book an appointment"
       onclick="trackConversion()"
       class="bg-cleannet-orange text-white px-5 py-2 rounded-full font-semibold hover:bg-orange-600 transition text-sm md:text-base">
-      Book Appointment
+      Write to us
     </a>
 
     <select
@@ -103,13 +103,13 @@ import { Phone, Menu, X } from "@lucide/astro";
       @click="open = false">Contact</a
     >
     <a
-      href="https://calendly.com/cleannet1963/30min"
+      href="https://wa.me/41766240598?text=Bonjour%20CleanNet%2C%20je%20souhaite%20demander%20un%20devis"
       target="_blank"
       rel="noopener noreferrer"
       title="Book an appointment"
       onclick="trackConversion()"
       class="bg-cleannet-orange text-white px-5 py-2 rounded-full font-semibold hover:bg-orange-600 transition">
-      Book Appointment
+      Write to us
     </a>
     <select
       onchange="location = this.value"
