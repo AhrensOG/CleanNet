@@ -1,13 +1,13 @@
 ---
-
+// WhatsAppButton.astro
 ---
 
 <a
-  href=https://wa.me/41796425297?text=Bonjour%20CleanNet%2C%20je%20souhaite%20demander%20un%20devis
+  id="whatsapp-conversion-btn"
+  href="https://wa.me/41796425297?text=Bonjour%20CleanNet%2C%20je%20souhaite%20demander%20un%20devis"
   target="_blank"
   rel="noopener noreferrer"
   title="Contactez-nous sur WhatsApp"
-  onclick="trackConversion()"
   class="fixed z-50 bottom-5 right-5 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-105 transition-transform duration-200"
   aria-label="Contact us on WhatsApp">
   <svg
@@ -19,3 +19,43 @@
     ></path>
   </svg>
 </a>
+
+<script>
+  const setupConversionTrack = () => {
+    const btn = document.getElementById(
+      "whatsapp-conversion-btn"
+    ) as HTMLAnchorElement | null;
+
+    if (btn) {
+      btn.addEventListener("click", (event) => {
+        const gWindow = window as any;
+
+        if (typeof gWindow.gtag === "function") {
+          // Prevenimos la apertura inmediata para dejar que Ads registre el clic
+          event.preventDefault();
+          const url = btn.href;
+
+          const callback = () => {
+            // Si el enlace tiene target="_blank", abrimos en pestaña nueva, si no, redirigimos
+            if (btn.target === "_blank") {
+              window.open(url, "_blank");
+            } else {
+              window.location.href = url;
+            }
+          };
+
+          gWindow.gtag("event", "conversion", {
+            send_to: "AW-17131857885/K4lpCI6NsNMbEN3Pjek_",
+            event_callback: callback,
+          });
+
+          // Seguridad: Si Google Ads no responde en 1 segundo, redirigimos igual
+          setTimeout(callback, 1000);
+        }
+      });
+    }
+  };
+
+  setupConversionTrack();
+  document.addEventListener("astro:after-swap", setupConversionTrack);
+</script>
