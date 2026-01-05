@@ -2,22 +2,23 @@
 // src/components/Security.astro
 const csp = [
   "default-src 'self'",
-  // Añadimos *.google.ch y *.google.com.ar (o genéricos) para el soporte regional de scripts
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://*.doubleclick.net https://*.google.com https://*.google.ch",
+  // Agregamos dominios base sin comodín para asegurar compatibilidad con GTM
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com https://*.googleadservices.com https://*.doubleclick.net https://*.google.com https://*.google.ch",
 
-  "script-src-elem 'self' 'unsafe-inline' https://*.googletagmanager.com https://*.googleadservices.com https://*.doubleclick.net https://*.google.com https://*.google.ch",
+  "script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com https://*.googleadservices.com https://*.doubleclick.net https://*.google.com https://*.google.ch",
 
-  // FALLA AQUÍ: Google necesita reportar la conversión a sus servidores de recolección
-  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://*.googleadservices.com https://*.google.com https://*.google.ch ws://localhost:* http://localhost:*",
+  // Agregamos region1.google-analytics.com y otros colectores que usa GTM para las conversiones
+  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://*.googleadservices.com https://*.google.com https://*.google.ch https://region1.google-analytics.com ws://localhost:* http://localhost:*",
 
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.googleapis.com",
 
-  // Aseguramos que las imágenes de píxel de conversión (1x1) carguen
-  "img-src 'self' data: https://*.googletagmanager.com https://*.google-analytics.com https://*.gstatic.com https://*.google.com https://*.google.ch https://*.googleadservices.com https://*.doubleclick.net https://*.google.com.ar",
+  // Google pide específicamente www.googletagmanager.com en img-src para sus píxeles de seguimiento
+  "img-src 'self' data: https://www.googletagmanager.com https://*.googletagmanager.com https://*.google-analytics.com https://*.gstatic.com https://*.google.com https://*.google.ch https://*.googleadservices.com https://*.doubleclick.net",
 
   "font-src 'self' https://fonts.gstatic.com data:",
 
-  "frame-src 'self' https://*.googletagmanager.com https://*.doubleclick.net https://*.google.com https://*.google.ch",
+  // Añadimos google.com para el modo preview de Tag Assistant
+  "frame-src 'self' https://www.googletagmanager.com https://*.googletagmanager.com https://*.doubleclick.net https://*.google.com https://*.google.ch",
 ].join("; ");
 ---
 
@@ -31,5 +32,8 @@ const csp = [
     dataLayer.push(arguments);
   }
   gtag("js", new Date());
-  gtag("config", "AW-17131857885");
+  // El 'linker' es fundamental para que la conversión de WhatsApp se asocie a la sesión
+  gtag("config", "AW-17131857885", {
+    linker: { domains: ["wa.me", "calendly.com"] },
+  });
 </script>
