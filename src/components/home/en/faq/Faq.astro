@@ -1,0 +1,97 @@
+---
+const faqs = [
+  {
+    question: "How much does apartment cleaning cost in Geneva?",
+    answer:
+      "The price depends on the size and type of service. Contact us for a free personalised quote. We cover Geneva, Lancy, Carouge and the whole canton.",
+  },
+  {
+    question: "Do you cover the whole canton of Geneva?",
+    answer:
+      "Yes, Clean Net operates across the entire canton of Geneva: Lancy, Carouge, Meyrin, Vernier, Onex, Thônex, Chêne-Bougeries and surrounding areas.",
+  },
+  {
+    question: "Do you offer cleaning services for businesses?",
+    answer:
+      "Yes, we provide regular and one-off cleaning for offices, shops and professional spaces in Geneva since 2002.",
+  },
+  {
+    question: "Do you do post-construction cleaning?",
+    answer:
+      "Yes, we handle full post-construction cleaning: dust, debris and construction residue removal for spotless results.",
+  },
+  {
+    question: "Do you offer moving services?",
+    answer:
+      "Yes, Clean Net offers a complete all-inclusive moving service: planning, transport, handling and cleaning all included.",
+  },
+  {
+    question: "What are your working hours?",
+    answer:
+      "We operate Monday to Saturday from 8:00am to 7:00pm. Contact us via WhatsApp for any urgent requests.",
+  },
+  {
+    question: "Do you sand and varnish parquet floors?",
+    answer:
+      "Yes, we offer parquet sanding, varnishing and maintenance for both residential and commercial clients in Geneva.",
+  },
+  {
+    question: "How do I get a free quote?",
+    answer:
+      "Contact us directly via WhatsApp or by phone at +41 79 642 52 97. We respond quickly with a quote tailored to your needs.",
+  },
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-6">
+    <!-- Title -->
+    <div class="text-center mb-12 space-y-3">
+      <p
+        class="uppercase text-sm font-medium text-cleannet-blue tracking-widest">
+        Frequently asked questions
+      </p>
+      <h2 class="text-4xl font-extrabold text-[#111827] leading-tight">
+        Everything you need
+        <span class="relative inline-block">
+          <span class="text-cleannet-orange">to know</span>
+          <span
+            class="absolute bottom-0 left-0 w-full h-2 bg-cleannet-gray z-[-1]"
+          ></span>
+        </span>
+      </h2>
+    </div>
+
+    <!-- Accordion -->
+    <div class="divide-y divide-cleannet-gray/30">
+      {
+        faqs.map((faq) => (
+          <details class="group py-5 cursor-pointer">
+            <summary class="flex justify-between items-center gap-4 list-none">
+              <h3 class="text-base font-semibold text-[#111827] group-open:text-cleannet-blue transition-colors">
+                {faq.question}
+              </h3>
+              <span class="text-cleannet-blue flex-shrink-0 transition-transform duration-300 group-open:rotate-45">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+              </span>
+            </summary>
+            <p class="mt-3 text-cleannet-darkgray text-sm leading-relaxed pr-8">
+              {faq.answer}
+            </p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

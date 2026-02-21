@@ -1,0 +1,100 @@
+---
+const faqs = [
+  {
+    question: "Combien coûte un nettoyage d'appartement à Genève ?",
+    answer:
+      "Le prix dépend de la surface et du type de prestation. Contactez-nous pour un devis gratuit et personnalisé. Nous intervenons à Genève, Lancy, Carouge et dans tout le canton.",
+  },
+  {
+    question: "Intervenez-vous dans tout le canton de Genève ?",
+    answer:
+      "Oui, Clean Net intervient dans tout le canton de Genève : Lancy, Carouge, Meyrin, Vernier, Onex, Thônex, Chêne-Bougeries et les communes environnantes.",
+  },
+  {
+    question: "Proposez-vous des services pour les entreprises ?",
+    answer:
+      "Oui, nous assurons le nettoyage régulier et ponctuel de bureaux, commerces et espaces professionnels à Genève depuis 2002.",
+  },
+  {
+    question: "Faites-vous le nettoyage de fin de chantier ?",
+    answer:
+      "Oui, nous réalisons le nettoyage complet après travaux : élimination de poussière, résidus et traces de chantier pour un résultat impeccable.",
+  },
+  {
+    question: "Proposez-vous des services de déménagement ?",
+    answer:
+      "Oui, Clean Net propose un service complet de déménagement clé en main : organisation, transport, manutention et nettoyage inclus.",
+  },
+  {
+    question: "Quels sont vos horaires d'intervention ?",
+    answer:
+      "Nous intervenons du lundi au samedi de 8h00 à 19h00. Contactez-nous par WhatsApp pour toute demande urgente.",
+  },
+  {
+    question: "Faites-vous du ponçage et vitrification de parquets ?",
+    answer:
+      "Oui, nous proposons le ponçage, la vitrification et l'entretien de parquets en bois pour les particuliers et les professionnels à Genève.",
+  },
+  {
+    question: "Comment obtenir un devis gratuit ?",
+    answer:
+      "Contactez-nous directement par WhatsApp ou par téléphone au +41 79 642 52 97. Nous vous répondons rapidement avec un devis adapté à vos besoins.",
+  },
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-6">
+    <!-- Título -->
+    <div class="text-center mb-12 space-y-3">
+      <p
+        class="uppercase text-sm font-medium text-cleannet-blue tracking-widest">
+        Questions fréquentes
+      </p>
+      <h2 class="text-4xl font-extrabold text-[#111827] leading-tight">
+        Tout ce que vous voulez
+        <span class="relative inline-block">
+          <span class="text-cleannet-orange">savoir</span>
+          <span
+            class="absolute bottom-0 left-0 w-full h-2 bg-cleannet-gray z-[-1]"
+          ></span>
+        </span>
+      </h2>
+    </div>
+
+    <!-- Acordeón -->
+    <div class="divide-y divide-cleannet-gray/30">
+      {
+        faqs.map((faq, i) => (
+          <details
+            class="group py-5 cursor-pointer"
+            x-data="{ open: false }"
+            @click="open = !open">
+            <summary class="flex justify-between items-center gap-4 list-none">
+              <h3 class="text-base font-semibold text-[#111827] group-open:text-cleannet-blue transition-colors">
+                {faq.question}
+              </h3>
+              <span class="text-cleannet-blue flex-shrink-0 transition-transform duration-300 group-open:rotate-45">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+              </span>
+            </summary>
+            <p class="mt-3 text-cleannet-darkgray text-sm leading-relaxed pr-8">
+              {faq.answer}
+            </p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
