@@ -2,19 +2,61 @@
 import { seoMeta } from "../metadata/SEOMeta";
 import { buildHreflangs, getLangFromPath } from "../scripts/lang";
 
-// Permitir pathname desde props para evitar errores en preview/build
 const { pathname = "/" } = Astro.props;
 
 const lang = getLangFromPath(pathname);
 const hreflangs = buildHreflangs(pathname);
 const canonicalUrl = `https://www.clean-net.ch${pathname}`;
 const is404 = pathname.includes("/404");
+const isServices = pathname.includes("/services");
+const isContact = pathname.includes("/contact");
 
 const { title, description, ogImage, keywords } = seoMeta[pathname] || {
   title: "Clean Net – Nettoyage et Services à Genève",
   description: "Entreprise de nettoyage professionnel en Suisse romande.",
   ogImage: "https://www.clean-net.ch/favicon.svg",
   keywords: "nettoyage, services de nettoyage, Genève, conciergerie",
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": lang === "en" ? "Clean Net Geneva Cleaning Services" : "Services de nettoyage Clean Net Genève",
+  "itemListElement": lang === "en"
+    ? [
+        {"@type": "Service", "position": 1, "name": "Apartment cleaning", "description": "Complete apartment cleaning service in Geneva.", "provider": {"@id": "https://www.clean-net.ch/#organization"}},
+        {"@type": "Service", "position": 2, "name": "Office cleaning", "description": "Regular or one-off office cleaning in Geneva.", "provider": {"@id": "https://www.clean-net.ch/#organization"}},
+        {"@type": "Service", "position": 3, "name": "Post-construction cleaning", "description": "Full cleaning after renovation works.", "provider": {"@id": "https://www.clean-net.ch/#organization"}},
+        {"@type": "Service", "position": 4, "name": "Floor sanding", "description": "Professional floor sanding and refinishing.", "provider": {"@id": "https://www.clean-net.ch/#organization"}},
+        {"@type": "Service", "position": 5, "name": "Concierge service", "description": "Key management, surveillance and personalised services.", "provider": {"@id": "https://www.clean-net.ch/#organization"}},
+        {"@type": "Service", "position": 6, "name": "Moving services Geneva", "description": "Full moving service including transport and cleaning.", "provider": {"@id": "https://www.clean-net.ch/#organization"}}
+      ]
+    : [
+        {"@type": "Service", "position": 1, "name": "Nettoyage d'appartements", "description": "Nettoyage complet d'appartements privés à Genève.", "provider": {"@id": "https://www.clean-net.ch/#organization"}},
+        {"@type": "Service", "position": 2, "name": "Nettoyage de bureaux", "description": "Nettoyage régulier ou ponctuel de bureaux professionnels.", "provider": {"@id": "https://www.clean-net.ch/#organization"}},
+        {"@type": "Service", "position": 3, "name": "Nettoyage fin de chantier", "description": "Nettoyage complet après travaux.", "provider": {"@id": "https://www.clean-net.ch/#organization"}},
+        {"@type": "Service", "position": 4, "name": "Ponçage de parquets", "description": "Remise à neuf des parquets par ponçage professionnel.", "provider": {"@id": "https://www.clean-net.ch/#organization"}},
+        {"@type": "Service", "position": 5, "name": "Service de conciergerie", "description": "Gestion des clés, surveillance et services personnalisés.", "provider": {"@id": "https://www.clean-net.ch/#organization"}},
+        {"@type": "Service", "position": 6, "name": "Déménagement Genève", "description": "Organisation, transport et nettoyage inclus.", "provider": {"@id": "https://www.clean-net.ch/#organization"}}
+      ]
+};
+
+const breadcrumbServices = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": lang === "en" ? "Home" : "Accueil", "item": `https://www.clean-net.ch/${lang}`},
+    {"@type": "ListItem", "position": 2, "name": "Services", "item": `https://www.clean-net.ch/${lang}/services`}
+  ]
+};
+
+const breadcrumbContact = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": lang === "en" ? "Home" : "Accueil", "item": `https://www.clean-net.ch/${lang}`},
+    {"@type": "ListItem", "position": 2, "name": "Contact", "item": `https://www.clean-net.ch/${lang}/contact`}
+  ]
 };
 ---
 
@@ -29,22 +71,98 @@ const { title, description, ogImage, keywords } = seoMeta[pathname] || {
 <!-- Open Graph -->
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-{
-  ogImage && (
-    <>
-      <meta property="og:image" content={ogImage} />
-      <meta name="twitter:image" content={ogImage} />
-    </>
-  )
-}
+{ogImage && (
+  <>
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:image" content={ogImage} />
+  </>
+)}
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 
 <!-- Canonical y hreflang -->
 <link rel="canonical" href={canonicalUrl} />
-{
-  hreflangs.map(({ code, url }) => (
-    <link rel="alternate" hreflang={code} href={url} />
-  ))
-}
+{hreflangs.map(({ code, url }) => (
+  <link rel="alternate" hreflang={code} href={url} />
+))}
 <link rel="alternate" hreflang="x-default" href="https://www.clean-net.ch/" />
+
+<!-- Schemas -->
+{!is404 && (
+  <>
+    <!-- LocalBusiness + CleaningService (todas las páginas) -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["CleaningService", "LocalBusiness"],
+      "@id": "https://www.clean-net.ch/#organization",
+      "name": "Clean Net",
+      "telephone": "+41796425297",
+      "email": "clean.net@bluewin.ch",
+      "url": "https://www.clean-net.ch",
+      "foundingDate": "2002",
+      "priceRange": "CHF",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenue des Communes-Réunies 70",
+        "addressLocality": "Grand-Lancy",
+        "postalCode": "1212",
+        "addressCountry": "CH"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 46.1733,
+        "longitude": 6.1274
+      },
+      "areaServed": [
+        {"@type": "City", "name": "Genève"},
+        {"@type": "City", "name": "Lancy"},
+        {"@type": "City", "name": "Carouge"},
+        {"@type": "City", "name": "Meyrin"},
+        {"@type": "City", "name": "Vernier"},
+        {"@type": "City", "name": "Onex"},
+        {"@type": "AdministrativeArea", "name": "Canton de Genève"}
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "08:00",
+          "closes": "19:00"
+        }
+      ],
+      "serviceType": lang === "en"
+        ? ["Apartment cleaning","Office cleaning","Window cleaning","Floor sanding","Moving services","Concierge service","Post-construction cleaning"]
+        : ["Nettoyage d'appartements","Nettoyage de bureaux","Nettoyage de vitres","Ponçage de parquets","Déménagement","Conciergerie","Nettoyage fin de chantier"]
+    })} />
+
+    <!-- FAQ (todas las páginas) -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": lang === "en"
+        ? [
+            {"@type": "Question", "name": "How much does apartment cleaning cost in Geneva?", "acceptedAnswer": {"@type": "Answer", "text": "The price depends on the size and type of service. Contact us for a free quote. We cover Geneva, Lancy, Carouge and the whole canton."}},
+            {"@type": "Question", "name": "Do you cover the whole canton of Geneva?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, Clean Net operates across the entire canton of Geneva: Lancy, Carouge, Meyrin, Vernier, Onex, Thônex, Chêne-Bougeries and surrounding areas."}},
+            {"@type": "Question", "name": "Do you offer cleaning services for businesses?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, we provide regular and one-off cleaning for offices, shops and professional spaces in Geneva since 2002."}},
+            {"@type": "Question", "name": "Do you do post-construction cleaning?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, Clean Net handles full post-construction cleaning: dust, debris and construction residue removal for spotless results."}}
+          ]
+        : [
+            {"@type": "Question", "name": "Combien coûte un nettoyage d'appartement à Genève ?", "acceptedAnswer": {"@type": "Answer", "text": "Le prix dépend de la surface et du type de prestation. Contactez-nous pour un devis gratuit. Nous intervenons à Genève, Lancy, Carouge et dans tout le canton."}},
+            {"@type": "Question", "name": "Intervenez-vous dans tout le canton de Genève ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, Clean Net intervient dans tout le canton de Genève : Lancy, Carouge, Meyrin, Vernier, Onex, Thônex, Chêne-Bougeries et toutes les communes environnantes."}},
+            {"@type": "Question", "name": "Proposez-vous des services de nettoyage pour les entreprises ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, nous proposons le nettoyage régulier et ponctuel de bureaux, commerces et espaces professionnels à Genève depuis 2002."}},
+            {"@type": "Question", "name": "Faites-vous le nettoyage de fin de chantier ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, Clean Net réalise le nettoyage complet après travaux : élimination de poussière, résidus et traces de chantier."}}
+          ]
+    })} />
+
+    <!-- Schemas específicos por página -->
+    {isServices && (
+      <>
+        <script type="application/ld+json" is:inline set:html={JSON.stringify(serviceSchema)} />
+        <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbServices)} />
+      </>
+    )}
+    {isContact && (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbContact)} />
+    )}
+  </>
+)}
