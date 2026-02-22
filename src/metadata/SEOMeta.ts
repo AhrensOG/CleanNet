@@ -10,7 +10,7 @@ export const seoMeta: Record<string, MetaInfo> = {
     title: "Clean Net – Nettoyage Professionnel à Genève",
     description:
       "Entreprise de nettoyage à Genève. Services de qualité pour particuliers et professionnels : bureaux, immeubles, vitres, fin de bail, etc.",
-    ogImage: "https://www.clean-net.ch/favicon.svg",
+    ogImage: "https://www.clean-net.ch/favicon.ico",
     keywords:
       "nettoyage Genève, entreprise de nettoyage, nettoyage fin de bail, nettoyage bureaux, conciergerie Genève, Clean Net",
   },
@@ -18,7 +18,7 @@ export const seoMeta: Record<string, MetaInfo> = {
     title: "Nos Services – Nettoyage pour Bureaux, Maisons et Immeubles",
     description:
       "Découvrez nos services de nettoyage à Genève : entretien régulier, nettoyage de vitres, après chantier, fin de bail, conciergerie et plus.",
-    ogImage: "https://www.clean-net.ch/favicon.svg",
+    ogImage: "https://www.clean-net.ch/favicon.ico",
     keywords:
       "services de nettoyage Genève, nettoyage vitres, entretien régulier, nettoyage après travaux, conciergerie immeuble",
   },
@@ -26,7 +26,7 @@ export const seoMeta: Record<string, MetaInfo> = {
     title: "Contactez Clean Net – Devis gratuit à Genève",
     description:
       "Prenez contact avec notre équipe basée à Genève pour des services de nettoyage fiables et personnalisés. Nous vous garantissons une réponse rapide, un accompagnement sur mesure et un devis gratuit adapté à vos besoins, que vous soyez un particulier ou une entreprise.",
-    ogImage: "https://www.clean-net.ch/favicon.svg",
+    ogImage: "https://www.clean-net.ch/favicon.ico",
     keywords:
       "contact nettoyage Genève, devis gratuit nettoyage, entreprise nettoyage contact, Clean Net Genève",
   },
@@ -34,7 +34,7 @@ export const seoMeta: Record<string, MetaInfo> = {
     title: "Clean Net – Professional Cleaning Services in Geneva",
     description:
       "Cleaning company in Geneva for individuals and businesses: offices, apartments, window cleaning, end-of-lease, and more. Free quote.",
-    ogImage: "https://www.clean-net.ch/favicon.svg",
+    ogImage: "https://www.clean-net.ch/favicon.ico",
     keywords:
       "cleaning services Geneva, professional cleaning, apartment cleaning, end-of-lease, office cleaning, Clean Net",
   },
@@ -42,7 +42,7 @@ export const seoMeta: Record<string, MetaInfo> = {
     title: "Our Services – Office, Home and Building Cleaning",
     description:
       "Explore our cleaning services in Geneva: regular cleaning, window cleaning, post-construction, end-of-lease, concierge and more.",
-    ogImage: "https://www.clean-net.ch/favicon.svg",
+    ogImage: "https://www.clean-net.ch/favicon.ico",
     keywords:
       "cleaning services Geneva, window cleaning, office cleaning, concierge service Geneva, after renovation cleaning",
   },
@@ -50,7 +50,7 @@ export const seoMeta: Record<string, MetaInfo> = {
     title: "Contact Clean Net – Free Quote in Geneva",
     description:
       "Reach out to our Geneva-based team for reliable and professional cleaning services tailored to your needs. We offer fast response times, personalised support, and high-quality results for both residential and commercial spaces.",
-    ogImage: "https://www.clean-net.ch/favicon.svg",
+    ogImage: "https://www.clean-net.ch/favicon.ico",
     keywords:
       "contact Clean Net Geneva, cleaning company contact, request quote cleaning services Geneva, free quote cleaning",
   },
@@ -59,13 +59,13 @@ export const seoMeta: Record<string, MetaInfo> = {
   "/fr/404": {
     title: "Page non trouvée – Clean Net",
     description: "La page que vous recherchez n'existe pas ou a été déplacée.",
-    ogImage: "https://www.clean-net.ch/favicon.svg",
+    ogImage: "https://www.clean-net.ch/favicon.ico",
     keywords: "404, page introuvable, erreur, Clean Net",
   },
   "/en/404": {
     title: "Page Not Found – Clean Net",
     description: "The page you are looking for doesn't exist or has been moved.",
-    ogImage: "https://www.clean-net.ch/favicon.svg",
+    ogImage: "https://www.clean-net.ch/favicon.ico",
     keywords: "404, not found, error page, Clean Net",
   },
 };
