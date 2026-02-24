@@ -18,202 +18,518 @@ import {
   Boxes,
   Truck,
   Flower,
+  Search,
+  LayoutGrid,
+  Sparkles,
+  Building2,
+  PanelBottom,
+  HardHat,
+  TreePine,
 } from "@lucide/astro";
 ---
 
-<section id="all-services" class="py-20 bg-white">
+<section id="all-services" class="py-20 bg-[#f8f9fc]">
   <div class="max-w-7xl mx-auto px-6">
-    <!-- Titre principal -->
-    <div class="mb-12 text-center">
-      <p class="uppercase text-sm font-medium text-cleannet-blue">
+    <!-- Header -->
+    <div class="mb-10 text-center">
+      <p
+        class="uppercase text-sm font-semibold tracking-widest text-cleannet-blue mb-2">
         Nos Services
       </p>
       <h2 class="text-4xl font-extrabold text-cleannet-blue leading-tight">
         Découvrez tous nos
-        <span class="relative inline-block">
-          <span class="text-cleannet-orange">services professionnels</span>
-          <span
-            class="absolute bottom-0 left-0 w-full h-2 bg-cleannet-gray z-[-1]"
-          ></span>
-        </span>
+        <span class="text-cleannet-orange">services professionnels</span>
       </h2>
     </div>
 
-    <!-- Grille de services -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Nettoyage Professionnel -->
-      <ServiceCard
-        Icon={Home}
-        title="Nettoyage d'appartements"
-        description="Service de nettoyage complet pour appartements privés, avec attention aux détails et respect de vos espaces de vie."
-        keywords={["nettoyage appartement", "nettoyage logement"]}
+    <!-- Search bar -->
+    <div class="relative max-w-xl mx-auto mb-8">
+      <span
+        class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"
+          ></path></svg
+        >
+      </span>
+      <input
+        id="service-search"
+        type="text"
+        placeholder="Rechercher un service..."
+        class="w-full pl-11 pr-4 py-3 rounded-full border border-gray-200 bg-white shadow-sm text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-cleannet-blue transition"
       />
-      <ServiceCard
-        Icon={Building}
-        title="Nettoyage de bureaux"
-        description="Nettoyage régulier ou ponctuel de bureaux pour garantir un environnement de travail propre et sain."
-        keywords={["nettoyage bureaux", "bureau propre"]}
-      />
-      <ServiceCard
-        Icon={Factory}
-        title="Nettoyage de fin de chantier"
-        description="Nettoyage complet après travaux pour livrer des espaces impeccables. Élimination de la poussière, des résidus et des traces de chantier."
-        keywords={["fin de chantier", "nettoyage chantier"]}
-      />
-      <ServiceCard
-        Icon={Home}
-        title="Nettoyage de maisons privées"
-        description="Nettoyage en profondeur de maisons individuelles, incluant sols, vitres et surfaces délicates."
-        keywords={["nettoyage maison", "ménage maison"]}
-      />
-      <ServiceCard
-        Icon={Sofa}
-        title="Nettoyage de moquettes"
-        description="Détachage, nettoyage vapeur et désinfection de moquettes et tapis pour un intérieur sain."
-        keywords={["nettoyage moquette", "nettoyage tapis"]}
-      />
-      <ServiceCard
-        Icon={Glasses}
-        title="Nettoyage de vitres"
-        description="Lavage professionnel de vitres, vitrines et baies vitrées. Intérieur et extérieur, accès simples ou complexes."
-        keywords={["nettoyage vitres", "vitres propres"]}
-      />
-      <ServiceCard
-        Icon={Layout}
-        title="Nettoyage de boiseries & vérandas"
-        description="Nettoyage minutieux de surfaces sensibles : stores, volets, vérandas et boiseries avec produits adaptés."
-        keywords={["nettoyage boiseries", "nettoyage véranda"]}
-      />
-      <ServiceCard
-        Icon={Building}
-        title="Nettoyage de surfaces commerciales"
-        description="Entretien et nettoyage régulier de magasins, halls d'entrée, zones de vente et espaces clients."
-        keywords={["nettoyage commerce", "nettoyage boutique"]}
-      />
-      <ServiceCard
-        Icon={Brush}
-        title="Nettoyage haute pression"
-        description="Élimination des salissures tenaces sur sols extérieurs, façades, murs et équipements industriels."
-        keywords={["nettoyage haute pression", "dépoussiérage façade"]}
-      />
+    </div>
 
-      <!-- Entretien & Conciergerie -->
-      <ServiceCard
-        Icon={Key}
-        title="Femme de ménage"
-        description="Personnel de ménage qualifié pour l'entretien quotidien ou hebdomadaire de vos espaces privés ou professionnels."
-        keywords={["femme de ménage Genève", "entretien maison"]}
-      />
-      <ServiceCard
-        Icon={Building}
-        title="Entretien d’immeubles"
-        description="Entretien des parties communes : escaliers, ascenseurs, halls et locaux techniques avec rigueur et régularité."
-        keywords={["entretien immeuble", "nettoyage copropriété"]}
-      />
-      <ServiceCard
-        Icon={Key}
-        title="Service de conciergerie"
-        description="Services pratiques : gestion des clés, surveillance, petites réparations et accompagnement personnalisé."
-        keywords={["conciergerie Genève", "services immeuble"]}
-      />
-      <ServiceCard
-        Icon={Boxes}
-        title="Préparation d’état des lieux"
-        description="Nettoyage et organisation pour garantir une restitution conforme des logements à louer ou restituer."
-        keywords={["état des lieux", "nettoyage avant location"]}
-      />
-      <ServiceCard
-        Icon={Move}
-        title="Services après déménagement"
-        description="Remise en état après déménagement pour garantir une restitution parfaite des locaux ou logements."
-        keywords={["nettoyage après déménagement", "nettoyage départ"]}
-      />
+    <!-- Category filters -->
+    <div class="flex flex-wrap justify-center gap-3 mb-10" id="filter-buttons">
+      <button
+        data-filter="all"
+        class="filter-btn active inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold border-2 border-cleannet-blue bg-cleannet-blue text-white transition">
+        <LayoutGrid size={15} /> Tout
+      </button>
+      <button
+        data-filter="nettoyage"
+        class="filter-btn inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold border-2 border-gray-200 bg-white text-gray-600 hover:border-cleannet-blue hover:text-cleannet-blue transition">
+        <Sparkles size={15} /> Nettoyage
+      </button>
+      <button
+        data-filter="entretien"
+        class="filter-btn inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold border-2 border-gray-200 bg-white text-gray-600 hover:border-cleannet-blue hover:text-cleannet-blue transition">
+        <Building2 size={15} /> Entretien & Conciergerie
+      </button>
+      <button
+        data-filter="parquet"
+        class="filter-btn inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold border-2 border-gray-200 bg-white text-gray-600 hover:border-cleannet-blue hover:text-cleannet-blue transition">
+        <PanelBottom size={15} /> Parquets
+      </button>
+      <button
+        data-filter="renovation"
+        class="filter-btn inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold border-2 border-gray-200 bg-white text-gray-600 hover:border-cleannet-blue hover:text-cleannet-blue transition">
+        <HardHat size={15} /> Rénovation
+      </button>
+      <button
+        data-filter="exterieur"
+        class="filter-btn inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold border-2 border-gray-200 bg-white text-gray-600 hover:border-cleannet-blue hover:text-cleannet-blue transition">
+        <TreePine size={15} /> Espaces extérieurs
+      </button>
+      <button
+        data-filter="demenagement"
+        class="filter-btn inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold border-2 border-gray-200 bg-white text-gray-600 hover:border-cleannet-blue hover:text-cleannet-blue transition">
+        <Truck size={15} /> Déménagement
+      </button>
+    </div>
 
-      <!-- Parquets -->
-      <ServiceCard
-        Icon={Brush}
-        title="Ponçage de parquets"
-        description="Remise à neuf des parquets par ponçage professionnel pour supprimer rayures et usures."
-        keywords={["ponçage parquet", "rénovation parquet"]}
-      />
-      <ServiceCard
-        Icon={Layout}
-        title="Imprégnation et vitrification"
-        description="Protection et finition de parquets après ponçage : vitrificateur, huiles naturelles ou cires adaptées."
-        keywords={["vitrification parquet", "traitement parquet"]}
-      />
-      <ServiceCard
-        Icon={Wrench}
-        title="Entretien spécialisé"
-        description="Entretien régulier de vos parquets en bois pour garantir durabilité, brillance et hygiène."
-        keywords={["entretien parquet", "bois naturel"]}
-      />
+    <!-- No results message -->
+    <p id="no-results" class="hidden text-center text-gray-400 text-sm py-10">
+      Aucun service trouvé. Essayez un autre mot-clé.
+    </p>
 
-      <!-- Rénovation -->
-      <ServiceCard
-        Icon={Paintbrush}
-        title="Peinture intérieure"
-        description="Travaux de peinture murale, plafonds, boiseries pour rafraîchir ou rénover vos intérieurs avec soin."
-        keywords={["peinture intérieure", "rénovation mur"]}
-      />
-      <ServiceCard
-        Icon={Hammer}
-        title="Rénovation complète"
-        description="Rénovation globale d’espaces résidentiels ou professionnels : coordination de corps de métier, qualité garantie."
-        keywords={["rénovation Genève", "travaux complets"]}
-      />
-      <ServiceCard
-        Icon={Wrench}
-        title="Travaux de maçonnerie"
-        description="Réalisation de petits travaux de maçonnerie : cloisons, réparations, finitions pour projets de rénovation."
-        keywords={["maçonnerie intérieure", "travaux maison"]}
-      />
-      <ServiceCard
-        Icon={Layout}
-        title="Pose de carrelages"
-        description="Pose professionnelle de carrelage mural et au sol, toutes pièces et formats confondus."
-        keywords={["pose carrelage", "revêtement sol"]}
-      />
-      <ServiceCard
-        Icon={Layout}
-        title="Pose de parquets"
-        description="Installation de parquets flottants, massifs ou stratifiés avec précision et finitions de qualité."
-        keywords={["pose parquet", "revêtement bois"]}
-      />
+    <!-- Services grid -->
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      id="services-grid">
+      <!-- NETTOYAGE -->
+      <div
+        class="service-item"
+        data-category="nettoyage"
+        data-keywords="nettoyage appartement logement">
+        <ServiceCard
+          Icon={Home}
+          title="Nettoyage d'appartements"
+          description="Service de nettoyage complet pour appartements privés, avec attention aux détails et respect de vos espaces de vie."
+          keywords={["nettoyage appartement", "nettoyage logement"]}
+        />
+      </div>
 
-      <!-- Espaces extérieurs -->
-      <ServiceCard
-        Icon={Flower}
-        title="Entretien de jardins"
-        description="Tonte, désherbage, taille de haies, entretien saisonnier de vos jardins privés ou partagés."
-        keywords={["jardinage Genève", "entretien extérieur"]}
-      />
-      <ServiceCard
-        Icon={Leaf}
-        title="Nettoyage d'espaces extérieurs"
-        description="Nettoyage de terrasses, allées, façades et mobiliers extérieurs pour un rendu impeccable."
-        keywords={["nettoyage extérieur", "terrasse propre"]}
-      />
+      <div
+        class="service-item"
+        data-category="nettoyage"
+        data-keywords="nettoyage bureaux bureau propre">
+        <ServiceCard
+          Icon={Building}
+          title="Nettoyage de bureaux"
+          description="Nettoyage régulier ou ponctuel de bureaux pour garantir un environnement de travail propre et sain."
+          keywords={["nettoyage bureaux", "bureau propre"]}
+        />
+      </div>
 
-      <!-- Déménagement -->
-      <ServiceCard
-        Icon={Truck}
-        title="Service complet de déménagement"
-        description="Organisation, transport, manutention et nettoyage inclus. Service clé en main pour particuliers et entreprises."
-        keywords={["déménagement Genève", "transport meuble"]}
-      />
-      <ServiceCard
-        Icon={Package}
-        title="Aide à l’emballage et déballage"
-        description="Assistance pour l’emballage de vos affaires avec matériel adapté. Protection optimale garantie."
-        keywords={["emballage déménagement", "cartons déménagement"]}
-      />
-      <ServiceCard
-        Icon={Move}
-        title="Transport et manutention"
-        description="Chargement, transport et déchargement de vos biens en toute sécurité et efficacité."
-        keywords={["transport Genève", "manutention déménagement"]}
-      />
+      <div
+        class="service-item"
+        data-category="nettoyage"
+        data-keywords="fin de chantier nettoyage chantier">
+        <ServiceCard
+          Icon={Factory}
+          title="Nettoyage de fin de chantier"
+          description="Nettoyage complet après travaux pour livrer des espaces impeccables. Élimination de la poussière, des résidus et des traces de chantier."
+          keywords={["fin de chantier", "nettoyage chantier"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="nettoyage"
+        data-keywords="nettoyage maison ménage maison">
+        <ServiceCard
+          Icon={Home}
+          title="Nettoyage de maisons privées"
+          description="Nettoyage en profondeur de maisons individuelles, incluant sols, vitres et surfaces délicates."
+          keywords={["nettoyage maison", "ménage maison"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="nettoyage"
+        data-keywords="nettoyage moquette tapis">
+        <ServiceCard
+          Icon={Sofa}
+          title="Nettoyage de moquettes"
+          description="Détachage, nettoyage vapeur et désinfection de moquettes et tapis pour un intérieur sain."
+          keywords={["nettoyage moquette", "nettoyage tapis"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="nettoyage"
+        data-keywords="nettoyage vitres vitrines baies vitrées">
+        <ServiceCard
+          Icon={Glasses}
+          title="Nettoyage de vitres"
+          description="Lavage professionnel de vitres, vitrines et baies vitrées. Intérieur et extérieur, accès simples ou complexes."
+          keywords={["nettoyage vitres", "vitres propres"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="nettoyage"
+        data-keywords="nettoyage boiseries véranda stores volets">
+        <ServiceCard
+          Icon={Layout}
+          title="Nettoyage de boiseries & vérandas"
+          description="Nettoyage minutieux de surfaces sensibles : stores, volets, vérandas et boiseries avec produits adaptés."
+          keywords={["nettoyage boiseries", "nettoyage véranda"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="nettoyage"
+        data-keywords="nettoyage commerce boutique surfaces commerciales">
+        <ServiceCard
+          Icon={Building}
+          title="Nettoyage de surfaces commerciales"
+          description="Entretien et nettoyage régulier de magasins, halls d'entrée, zones de vente et espaces clients."
+          keywords={["nettoyage commerce", "nettoyage boutique"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="nettoyage"
+        data-keywords="nettoyage haute pression façade dépoussiérage">
+        <ServiceCard
+          Icon={Brush}
+          title="Nettoyage haute pression"
+          description="Élimination des salissures tenaces sur sols extérieurs, façades, murs et équipements industriels."
+          keywords={["nettoyage haute pression", "dépoussiérage façade"]}
+        />
+      </div>
+
+      <!-- ENTRETIEN & CONCIERGERIE -->
+      <div
+        class="service-item"
+        data-category="entretien"
+        data-keywords="femme de ménage entretien maison">
+        <ServiceCard
+          Icon={Key}
+          title="Femme de ménage"
+          description="Personnel de ménage qualifié pour l'entretien quotidien ou hebdomadaire de vos espaces privés ou professionnels."
+          keywords={["femme de ménage Genève", "entretien maison"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="entretien"
+        data-keywords="entretien immeuble copropriété parties communes">
+        <ServiceCard
+          Icon={Building}
+          title="Entretien d'immeubles"
+          description="Entretien des parties communes : escaliers, ascenseurs, halls et locaux techniques avec rigueur et régularité."
+          keywords={["entretien immeuble", "nettoyage copropriété"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="entretien"
+        data-keywords="conciergerie services immeuble clés">
+        <ServiceCard
+          Icon={Key}
+          title="Service de conciergerie"
+          description="Services pratiques : gestion des clés, surveillance, petites réparations et accompagnement personnalisé."
+          keywords={["conciergerie Genève", "services immeuble"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="entretien"
+        data-keywords="état des lieux nettoyage avant location">
+        <ServiceCard
+          Icon={Boxes}
+          title="Préparation d'état des lieux"
+          description="Nettoyage et organisation pour garantir une restitution conforme des logements à louer ou restituer."
+          keywords={["état des lieux", "nettoyage avant location"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="entretien"
+        data-keywords="nettoyage après déménagement remise en état">
+        <ServiceCard
+          Icon={Move}
+          title="Services après déménagement"
+          description="Remise en état après déménagement pour garantir une restitution parfaite des locaux ou logements."
+          keywords={["nettoyage après déménagement", "nettoyage départ"]}
+        />
+      </div>
+
+      <!-- PARQUETS -->
+      <div
+        class="service-item"
+        data-category="parquet"
+        data-keywords="ponçage parquet rénovation bois">
+        <ServiceCard
+          Icon={Brush}
+          title="Ponçage de parquets"
+          description="Remise à neuf des parquets par ponçage professionnel pour supprimer rayures et usures."
+          keywords={["ponçage parquet", "rénovation parquet"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="parquet"
+        data-keywords="vitrification parquet traitement bois huile cire">
+        <ServiceCard
+          Icon={Layout}
+          title="Imprégnation et vitrification"
+          description="Protection et finition de parquets après ponçage : vitrificateur, huiles naturelles ou cires adaptées."
+          keywords={["vitrification parquet", "traitement parquet"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="parquet"
+        data-keywords="entretien parquet bois naturel">
+        <ServiceCard
+          Icon={Wrench}
+          title="Entretien spécialisé de parquets"
+          description="Entretien régulier de vos parquets en bois pour garantir durabilité, brillance et hygiène."
+          keywords={["entretien parquet", "bois naturel"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="parquet"
+        data-keywords="pose parquet flottant massif stratifié">
+        <ServiceCard
+          Icon={Layout}
+          title="Pose de parquets"
+          description="Installation de parquets flottants, massifs ou stratifiés avec précision et finitions de qualité."
+          keywords={["pose parquet", "revêtement bois"]}
+        />
+      </div>
+
+      <!-- RÉNOVATION -->
+      <div
+        class="service-item"
+        data-category="renovation"
+        data-keywords="peinture intérieure mur plafond rénovation">
+        <ServiceCard
+          Icon={Paintbrush}
+          title="Peinture intérieure"
+          description="Travaux de peinture murale, plafonds, boiseries pour rafraîchir ou rénover vos intérieurs avec soin."
+          keywords={["peinture intérieure", "rénovation mur"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="renovation"
+        data-keywords="rénovation complète travaux Genève">
+        <ServiceCard
+          Icon={Hammer}
+          title="Rénovation complète"
+          description="Rénovation globale d'espaces résidentiels ou professionnels : coordination de corps de métier, qualité garantie."
+          keywords={["rénovation Genève", "travaux complets"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="renovation"
+        data-keywords="maçonnerie cloisons réparations finitions">
+        <ServiceCard
+          Icon={Wrench}
+          title="Travaux de maçonnerie"
+          description="Réalisation de petits travaux de maçonnerie : cloisons, réparations, finitions pour projets de rénovation."
+          keywords={["maçonnerie intérieure", "travaux maison"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="renovation"
+        data-keywords="pose carrelage mural sol revêtement">
+        <ServiceCard
+          Icon={Layout}
+          title="Pose de carrelages"
+          description="Pose professionnelle de carrelage mural et au sol, toutes pièces et formats confondus."
+          keywords={["pose carrelage", "revêtement sol"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="renovation"
+        data-keywords="pose parquet flottant massif stratifié">
+        <ServiceCard
+          Icon={Layout}
+          title="Pose de parquets"
+          description="Installation de parquets flottants, massifs ou stratifiés avec précision et finitions de qualité."
+          keywords={["pose parquet", "revêtement bois"]}
+        />
+      </div>
+
+      <!-- ESPACES EXTÉRIEURS -->
+      <div
+        class="service-item"
+        data-category="exterieur"
+        data-keywords="jardinage entretien jardin tonte haies">
+        <ServiceCard
+          Icon={Flower}
+          title="Entretien de jardins"
+          description="Tonte, désherbage, taille de haies, entretien saisonnier de vos jardins privés ou partagés."
+          keywords={["jardinage Genève", "entretien extérieur"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="exterieur"
+        data-keywords="nettoyage extérieur terrasse allée façade mobilier">
+        <ServiceCard
+          Icon={Leaf}
+          title="Nettoyage d'espaces extérieurs"
+          description="Nettoyage de terrasses, allées, façades et mobiliers extérieurs pour un rendu impeccable."
+          keywords={["nettoyage extérieur", "terrasse propre"]}
+        />
+      </div>
+
+      <!-- DÉMÉNAGEMENT -->
+      <div
+        class="service-item"
+        data-category="demenagement"
+        data-keywords="déménagement complet transport nettoyage Genève">
+        <ServiceCard
+          Icon={Truck}
+          title="Service complet de déménagement"
+          description="Organisation, transport, manutention et nettoyage inclus. Service clé en main pour particuliers et entreprises."
+          keywords={["déménagement Genève", "transport meuble"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="demenagement"
+        data-keywords="emballage déballage cartons déménagement">
+        <ServiceCard
+          Icon={Package}
+          title="Aide à l'emballage et déballage"
+          description="Assistance pour l'emballage de vos affaires avec matériel adapté. Protection optimale garantie."
+          keywords={["emballage déménagement", "cartons déménagement"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="demenagement"
+        data-keywords="transport manutention chargement déchargement">
+        <ServiceCard
+          Icon={Move}
+          title="Transport et manutention"
+          description="Chargement, transport et déchargement de vos biens en toute sécurité et efficacité."
+          keywords={["transport Genève", "manutention déménagement"]}
+        />
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .service-item {
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+  .service-item.hidden-item {
+    display: none;
+  }
+  .filter-btn.active {
+    background-color: var(--color-cleannet-blue, #1e3a8a);
+    border-color: var(--color-cleannet-blue, #1e3a8a);
+    color: white;
+  }
+</style>
+
+<script>
+  const searchInput = document.getElementById(
+    "service-search",
+  ) as HTMLInputElement;
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const serviceItems = document.querySelectorAll(".service-item");
+  const noResults = document.getElementById("no-results");
+
+  let activeFilter = "all";
+
+  function applyFilters() {
+    const query = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    serviceItems.forEach((item) => {
+      const el = item as HTMLElement;
+      const category = el.dataset.category || "";
+      const keywords = el.dataset.keywords || "";
+      const title =
+        el
+          .querySelector('[class*="font-bold"], h3, p')
+          ?.textContent?.toLowerCase() || "";
+      const fullText = (keywords + " " + title).toLowerCase();
+
+      const matchesFilter = activeFilter === "all" || category === activeFilter;
+      const matchesSearch = query === "" || fullText.includes(query);
+
+      if (matchesFilter && matchesSearch) {
+        el.classList.remove("hidden-item");
+        visible++;
+      } else {
+        el.classList.add("hidden-item");
+      }
+    });
+
+    if (noResults) {
+      noResults.classList.toggle("hidden", visible > 0);
+    }
+  }
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      filterButtons.forEach((b) => {
+        b.classList.remove("active");
+        (b as HTMLElement).style.backgroundColor = "";
+        (b as HTMLElement).style.borderColor = "";
+        (b as HTMLElement).style.color = "";
+      });
+      btn.classList.add("active");
+      activeFilter = (btn as HTMLElement).dataset.filter || "all";
+      applyFilters();
+    });
+  });
+
+  searchInput?.addEventListener("input", applyFilters);
+</script>

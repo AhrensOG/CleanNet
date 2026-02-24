@@ -1,17 +1,17 @@
 ---
-import { Sparkles, ShieldCheck, Brush, HeartPulse } from "@lucide/astro";
+import { BadgeCheck, Users, LayoutGrid, ThumbsUp } from "@lucide/astro";
 ---
 
 <section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-6 text-center space-y-10">
     <!-- Title -->
     <h2
-      class="text-4xl md:text-5xl font-extrabold text-[#0f172a] leading-tight text-start">
-      A proven process for
+      class="text-4xl md:text-5xl font-extrabold text-cleannet-blue leading-tight text-start">
+      Why choose
       <span class="relative inline-block">
-        <span class="text-[#0f172a] font-extrabold">over 20 years</span>
+        <span class="text-cleannet-blue font-extrabold">CleanNet</span>
         <svg
-          class="absolute -bottom-1 left-0 w-full h-3 text-green-400 z-[-1]"
+          class="absolute -bottom-1 left-0 w-full h-3 text-cleannet-orange z-[-1]"
           viewBox="0 0 200 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -22,60 +22,65 @@ import { Sparkles, ShieldCheck, Brush, HeartPulse } from "@lucide/astro";
             stroke-linecap="round"></path>
         </svg>
       </span>
-      delivering cleanliness in Geneva
+      ?
     </h2>
 
     <!-- Subtitle -->
     <p
       class="text-cleannet-darkgray text-base max-w-3xl mx-auto leading-relaxed">
-      CleanNet offers a wide range of <strong
-        >professional cleaning services in Geneva</strong
-      > — from deep cleaning to concierge support. Our modern methods ensure spotless
-      results with every visit.
+      Since 2002, CleanNet has supported individuals and businesses across
+      Geneva with
+      <strong>a complete, reliable and professional service</strong> — from cleaning
+      to renovation, moving and concierge services.
     </p>
 
-    <!-- Four Steps -->
+    <!-- Four reasons -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pt-10">
       <div class="flex flex-col items-center text-center space-y-4">
-        <div class="bg-indigo-600 text-white p-4 rounded-full">
-          <Sparkles class="w-14 h-14" />
+        <div class="bg-cleannet-blue text-white p-4 rounded-full">
+          <BadgeCheck class="w-14 h-14" />
         </div>
-        <h3 class="font-bold text-lg">1. Hygiene & Cleanliness</h3>
+        <h3 class="font-bold text-lg text-cleannet-blue">
+          20+ years of experience
+        </h3>
         <p class="text-sm text-cleannet-darkgray">
-          Professional hygiene services with meticulous attention to every
-          detail.
+          Expertise built since 2002 across cleaning, parquet floors, renovation
+          and much more.
         </p>
       </div>
 
       <div class="flex flex-col items-center text-center space-y-4">
-        <div class="bg-indigo-600 text-white p-4 rounded-full">
-          <ShieldCheck class="w-14 h-14" />
+        <div class="bg-cleannet-orange text-white p-4 rounded-full">
+          <Users class="w-14 h-14" />
         </div>
-        <h3 class="font-bold text-lg">2. Safety Protocols</h3>
+        <h3 class="font-bold text-lg text-cleannet-blue">Trusted team</h3>
         <p class="text-sm text-cleannet-darkgray">
-          Our teams follow strict procedures to ensure a safe and secure
-          environment.
+          Qualified, discreet and punctual staff. Every visit is carried out
+          with care and respect for your space.
         </p>
       </div>
 
       <div class="flex flex-col items-center text-center space-y-4">
-        <div class="bg-indigo-600 text-white p-4 rounded-full">
-          <Brush class="w-14 h-14" />
+        <div class="bg-cleannet-blue text-white p-4 rounded-full">
+          <LayoutGrid class="w-14 h-14" />
         </div>
-        <h3 class="font-bold text-lg">3. Deep Cleaning</h3>
+        <h3 class="font-bold text-lg text-cleannet-blue">All-in-one service</h3>
         <p class="text-sm text-cleannet-darkgray">
-          We remove dirt, stains and embedded residues for an immaculate finish.
+          Cleaning, moving, renovation, gardening — one provider for all your
+          needs in Geneva.
         </p>
       </div>
 
       <div class="flex flex-col items-center text-center space-y-4">
-        <div class="bg-indigo-600 text-white p-4 rounded-full">
-          <HeartPulse class="w-14 h-14" />
+        <div class="bg-cleannet-orange text-white p-4 rounded-full">
+          <ThumbsUp class="w-14 h-14" />
         </div>
-        <h3 class="font-bold text-lg">4. Sanitary Inspection</h3>
+        <h3 class="font-bold text-lg text-cleannet-blue">
+          Satisfaction guaranteed
+        </h3>
         <p class="text-sm text-cleannet-darkgray">
-          Every service ends with a quality check to ensure hygiene and
-          well-being.
+          Every service ends with a quality check to ensure your complete
+          satisfaction.
         </p>
       </div>
     </div>

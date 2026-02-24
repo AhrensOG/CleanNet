@@ -1,17 +1,17 @@
 ---
-import { Sparkles, ShieldCheck, Brush, HeartPulse } from "@lucide/astro";
+import { BadgeCheck, Users, LayoutGrid, ThumbsUp } from "@lucide/astro";
 ---
 
 <section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-6 text-center space-y-10">
     <!-- Titre -->
     <h2
-      class="text-4xl md:text-5xl font-extrabold text-[#0f172a] leading-tight text-start">
-      Un processus maîtrisé depuis
+      class="text-4xl md:text-5xl font-extrabold text-cleannet-blue leading-tight text-start">
+      Pourquoi choisir
       <span class="relative inline-block">
-        <span class="text-[#0f172a] font-extrabold">plus de 25 ans</span>
+        <span class="text-cleannet-blue font-extrabold">CleanNet</span>
         <svg
-          class="absolute -bottom-1 left-0 w-full h-3 text-green-400 z-[-1]"
+          class="absolute -bottom-1 left-0 w-full h-3 text-cleannet-orange z-[-1]"
           viewBox="0 0 200 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -22,61 +22,66 @@ import { Sparkles, ShieldCheck, Brush, HeartPulse } from "@lucide/astro";
             stroke-linecap="round"></path>
         </svg>
       </span>
-      au service de la propreté
+      ?
     </h2>
 
     <!-- Sous-titre -->
     <p
       class="text-cleannet-darkgray text-base max-w-3xl mx-auto leading-relaxed">
-      CleanNet propose une large gamme de <strong
-        >services de nettoyage à Genève</strong
-      > — du nettoyage en profondeur à l’assistance de conciergerie. Nos techniques
-      modernes garantissent une propreté irréprochable.
+      Depuis 2002, CleanNet accompagne particuliers et entreprises à Genève avec
+      <strong>un service complet, fiable et professionnel</strong> — du nettoyage
+      à la rénovation, en passant par le déménagement et la conciergerie.
     </p>
 
-    <!-- Quatre étapes -->
+    <!-- Quatre raisons -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pt-10">
       <div class="flex flex-col items-center text-center space-y-4">
-        <div class="bg-indigo-600 text-white p-4 rounded-full">
-          <Sparkles class="w-14 h-14" />
+        <div class="bg-cleannet-blue text-white p-4 rounded-full">
+          <BadgeCheck class="w-14 h-14" />
         </div>
-        <h3 class="font-bold text-lg">1. Hygiène & Propreté</h3>
+        <h3 class="font-bold text-lg text-cleannet-blue">
+          +20 ans d'expérience
+        </h3>
         <p class="text-sm text-cleannet-darkgray">
-          Des prestations d’hygiène professionnelle avec une attention
-          rigoureuse aux moindres détails.
+          Une expertise acquise depuis 2002 dans le nettoyage, les parquets, la
+          rénovation et bien plus encore.
         </p>
       </div>
 
       <div class="flex flex-col items-center text-center space-y-4">
-        <div class="bg-indigo-600 text-white p-4 rounded-full">
-          <ShieldCheck class="w-14 h-14" />
+        <div class="bg-cleannet-orange text-white p-4 rounded-full">
+          <Users class="w-14 h-14" />
         </div>
-        <h3 class="font-bold text-lg">2. Contrôle de sécurité</h3>
+        <h3 class="font-bold text-lg text-cleannet-blue">
+          Équipe de confiance
+        </h3>
         <p class="text-sm text-cleannet-darkgray">
-          Nos équipes suivent des protocoles stricts pour assurer un
-          environnement sûr à chaque intervention.
+          Personnel qualifié, discret et ponctuel. Chaque intervention est
+          réalisée avec rigueur et respect de votre espace.
         </p>
       </div>
 
       <div class="flex flex-col items-center text-center space-y-4">
-        <div class="bg-indigo-600 text-white p-4 rounded-full">
-          <Brush class="w-14 h-14" />
+        <div class="bg-cleannet-blue text-white p-4 rounded-full">
+          <LayoutGrid class="w-14 h-14" />
         </div>
-        <h3 class="font-bold text-lg">3. Nettoyage en profondeur</h3>
+        <h3 class="font-bold text-lg text-cleannet-blue">Service tout-en-un</h3>
         <p class="text-sm text-cleannet-darkgray">
-          Nous éliminons saletés, taches et résidus incrustés pour un résultat
-          impeccable.
+          Nettoyage, déménagement, rénovation, jardinage — un seul prestataire
+          pour tous vos besoins à Genève.
         </p>
       </div>
 
       <div class="flex flex-col items-center text-center space-y-4">
-        <div class="bg-indigo-600 text-white p-4 rounded-full">
-          <HeartPulse class="w-14 h-14" />
+        <div class="bg-cleannet-orange text-white p-4 rounded-full">
+          <ThumbsUp class="w-14 h-14" />
         </div>
-        <h3 class="font-bold text-lg">4. Inspection sanitaire</h3>
+        <h3 class="font-bold text-lg text-cleannet-blue">
+          Satisfaction garantie
+        </h3>
         <p class="text-sm text-cleannet-darkgray">
-          Chaque prestation se termine par un contrôle qualité garantissant
-          hygiène et bien-être.
+          Chaque prestation se termine par un contrôle qualité pour assurer
+          votre entière satisfaction.
         </p>
       </div>
     </div>

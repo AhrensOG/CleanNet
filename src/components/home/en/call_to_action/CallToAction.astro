@@ -1,5 +1,5 @@
 ---
-import { Phone } from "@lucide/astro";
+import { MessageCircle, Phone } from "@lucide/astro";
 ---
 
 <section
@@ -11,13 +11,7 @@ import { Phone } from "@lucide/astro";
         Get in touch
       </p>
       <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">
-        Let’s discuss your needs or <br />
-        <span class="relative inline-block">
-          <span class="text-white relative">
-            book an appointment
-            <!-- SVG decoration stays the same -->
-          </span>
-        </span>
+        Let’s discuss your needs
       </h2>
       <p class="text-white/80 text-base max-w-lg leading-relaxed">
         Your time is valuable. Call us directly or <strong
@@ -28,10 +22,10 @@ import { Phone } from "@lucide/astro";
       <!-- Buttons -->
       <div class="flex flex-col sm:flex-row gap-4 pt-4">
         <a
-          href=https://wa.me/41796425297?text=Bonjour%20CleanNet%2C%20je%20souhaite%20demander%20un%20devis
-          title="Call us"
+          href="https://wa.me/41796425297?text=Bonjour%20CleanNet%2C%20je%20souhaite%20demander%20un%20devis"
+          title="Write to us"
           class="inline-flex items-center gap-2 px-6 py-3 bg-cleannet-orange hover:bg-orange-600 text-white font-semibold rounded-full shadow-md transition">
-          <Phone size={18} />
+          <MessageCircle size={18} />
           Write to us
         </a>
 

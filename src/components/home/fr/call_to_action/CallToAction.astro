@@ -1,5 +1,5 @@
 ---
-import { Phone } from "@lucide/astro";
+import { MessageCircle } from "@lucide/astro";
 ---
 
 <section
@@ -11,13 +11,7 @@ import { Phone } from "@lucide/astro";
         Contactez-nous
       </p>
       <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">
-        Parlons de vos besoins ou <br />
-        <span class="relative inline-block">
-          <span class="text-white relative">
-            prenez rendez-vous
-            <!-- SVG decoration stays the same -->
-          </span>
-        </span>
+        Parlons de vos besoins
       </h2>
       <p class="text-white/80 text-base max-w-lg leading-relaxed">
         Votre temps est précieux. Appelez-nous directement ou <strong
@@ -28,11 +22,11 @@ import { Phone } from "@lucide/astro";
       <!-- Boutons -->
       <div class="flex flex-col sm:flex-row gap-4 pt-4">
         <a
-          href=https://wa.me/41796425297?text=Bonjour%20CleanNet%2C%20je%20souhaite%20demander%20un%20devis
-          title="Contactez-nous par appel"
+          href="https://wa.me/41796425297?text=Bonjour%20CleanNet%2C%20je%20souhaite%20demander%20un%20devis"
+          title="Écrivez-nous"
           class="inline-flex items-center gap-2 px-6 py-3 bg-cleannet-orange hover:bg-orange-600 text-white font-semibold rounded-full shadow-md transition">
-          <Phone size={18} />
-          Appeler : +41 079 642 52 97
+          <MessageCircle size={18} />
+          Écrivez-nous
         </a>
 
         <!-- <a

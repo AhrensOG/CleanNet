@@ -18,203 +18,517 @@ import {
   Boxes,
   Truck,
   Flower,
+  LayoutGrid,
+  Sparkles,
+  Building2,
+  PanelBottom,
+  HardHat,
+  TreePine,
 } from "@lucide/astro";
 ---
 
-<section id="all-services" class="py-20 bg-white">
+<section id="all-services" class="py-20 bg-[#f8f9fc]">
   <div class="max-w-7xl mx-auto px-6">
-    <!-- Main Title -->
-    <div class="mb-12 text-center">
-      <p class="uppercase text-sm font-medium text-cleannet-blue">
+    <!-- Header -->
+    <div class="mb-10 text-center">
+      <p
+        class="uppercase text-sm font-semibold tracking-widest text-cleannet-blue mb-2">
         Our Services
       </p>
       <h2 class="text-4xl font-extrabold text-cleannet-blue leading-tight">
-        Discover all our
-        <span class="relative inline-block">
-          <span class="text-cleannet-orange">professional services</span>
-          <span
-            class="absolute bottom-0 left-0 w-full h-2 bg-cleannet-gray z-[-1]"
-          ></span>
-        </span>
+        Explore all our
+        <span class="text-cleannet-orange">professional services</span>
       </h2>
     </div>
 
-    <!-- Services Grid -->
+    <!-- Search bar -->
+    <div class="relative max-w-xl mx-auto mb-8">
+      <span
+        class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"
+          ></path></svg
+        >
+      </span>
+      <input
+        id="service-search"
+        type="text"
+        placeholder="Search for a service..."
+        class="w-full pl-11 pr-4 py-3 rounded-full border border-gray-200 bg-white shadow-sm text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-cleannet-blue transition"
+      />
+    </div>
+
+    <!-- Category filters -->
+    <div class="flex flex-wrap justify-center gap-3 mb-10" id="filter-buttons">
+      <button
+        data-filter="all"
+        class="filter-btn active inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold border-2 border-cleannet-blue bg-cleannet-blue text-white transition">
+        <LayoutGrid size={15} /> All
+      </button>
+      <button
+        data-filter="cleaning"
+        class="filter-btn inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold border-2 border-gray-200 bg-white text-gray-600 hover:border-cleannet-blue hover:text-cleannet-blue transition">
+        <Sparkles size={15} /> Cleaning
+      </button>
+      <button
+        data-filter="maintenance"
+        class="filter-btn inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold border-2 border-gray-200 bg-white text-gray-600 hover:border-cleannet-blue hover:text-cleannet-blue transition">
+        <Building2 size={15} /> Maintenance & Concierge
+      </button>
+      <button
+        data-filter="floors"
+        class="filter-btn inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold border-2 border-gray-200 bg-white text-gray-600 hover:border-cleannet-blue hover:text-cleannet-blue transition">
+        <PanelBottom size={15} /> Floors & Parquet
+      </button>
+      <button
+        data-filter="renovation"
+        class="filter-btn inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold border-2 border-gray-200 bg-white text-gray-600 hover:border-cleannet-blue hover:text-cleannet-blue transition">
+        <HardHat size={15} /> Renovation
+      </button>
+      <button
+        data-filter="outdoor"
+        class="filter-btn inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold border-2 border-gray-200 bg-white text-gray-600 hover:border-cleannet-blue hover:text-cleannet-blue transition">
+        <TreePine size={15} /> Outdoor Spaces
+      </button>
+      <button
+        data-filter="moving"
+        class="filter-btn inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold border-2 border-gray-200 bg-white text-gray-600 hover:border-cleannet-blue hover:text-cleannet-blue transition">
+        <Truck size={15} /> Moving
+      </button>
+    </div>
+
+    <!-- No results message -->
+    <p id="no-results" class="hidden text-center text-gray-400 text-sm py-10">
+      No services found. Try a different keyword.
+    </p>
+
+    <!-- Services grid -->
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Professional Cleaning -->
-      <ServiceCard
-        Icon={Home}
-        title="Apartment Cleaning"
-        description="Complete cleaning service for private apartments, with great attention to detail and care for your living space."
-        keywords={["apartment cleaning", "home cleaning"]}
-      />
-      <ServiceCard
-        Icon={Building}
-        title="Office Cleaning"
-        description="Regular or one-time cleaning to keep your office environment clean and healthy."
-        keywords={["office cleaning", "workplace hygiene"]}
-      />
-      <ServiceCard
-        Icon={Factory}
-        title="Post-Construction Cleaning"
-        description="Thorough cleaning after construction work, removing dust, debris, and building residues."
-        keywords={["post-construction", "site cleaning"]}
-      />
-      <ServiceCard
-        Icon={Home}
-        title="House Cleaning"
-        description="Deep cleaning of private houses including floors, windows, and delicate surfaces."
-        keywords={["house cleaning", "residential cleaning"]}
-      />
-      <ServiceCard
-        Icon={Sofa}
-        title="Carpet Cleaning"
-        description="Stain removal, steam cleaning, and disinfection of carpets and rugs for a healthy interior."
-        keywords={["carpet cleaning", "rug sanitation"]}
-      />
-      <ServiceCard
-        Icon={Glasses}
-        title="Window Cleaning"
-        description="Professional cleaning of windows, shopfronts, and glass walls—interior and exterior."
-        keywords={["window cleaning", "clean glass"]}
-      />
-      <ServiceCard
-        Icon={Layout}
-        title="Woodwork & Veranda Cleaning"
-        description="Detailed cleaning of sensitive areas: blinds, shutters, verandas, and wooden surfaces."
-        keywords={["woodwork cleaning", "veranda cleaning"]}
-      />
-      <ServiceCard
-        Icon={Building}
-        title="Commercial Cleaning"
-        description="Regular cleaning of shops, lobbies, sales areas, and customer spaces."
-        keywords={["store cleaning", "retail cleaning"]}
-      />
-      <ServiceCard
-        Icon={Brush}
-        title="High-Pressure Cleaning"
-        description="Removal of tough dirt on outdoor surfaces, facades, walls, and industrial equipment."
-        keywords={["high-pressure cleaning", "facade cleaning"]}
-      />
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      id="services-grid">
+      <!-- CLEANING -->
+      <div
+        class="service-item"
+        data-category="cleaning"
+        data-keywords="apartment cleaning home residential">
+        <ServiceCard
+          Icon={Home}
+          title="Apartment Cleaning"
+          description="Full cleaning service for private apartments, with attention to detail and respect for your living space."
+          keywords={["apartment cleaning", "home cleaning"]}
+        />
+      </div>
 
-      <!-- Maintenance & Concierge -->
-      <ServiceCard
-        Icon={Key}
-        title="Housekeeping Services"
-        description="Qualified personnel for daily or weekly cleaning of private and professional spaces."
-        keywords={["housekeeping Geneva", "home maintenance"]}
-      />
-      <ServiceCard
-        Icon={Building}
-        title="Building Maintenance"
-        description="Maintenance of common areas: stairs, elevators, lobbies, and technical rooms."
-        keywords={["building maintenance", "residential cleaning"]}
-      />
-      <ServiceCard
-        Icon={Key}
-        title="Concierge Services"
-        description="Practical services: key management, monitoring, small repairs, and personalized support."
-        keywords={["concierge Geneva", "building services"]}
-      />
-      <ServiceCard
-        Icon={Boxes}
-        title="Move-In/Out Cleaning"
-        description="Cleaning and preparation to ensure proper condition for rented or returned properties."
-        keywords={["move-out cleaning", "pre-rental cleaning"]}
-      />
-      <ServiceCard
-        Icon={Move}
-        title="Post-Move Services"
-        description="Restoration and cleaning after a move, ensuring the premises are perfectly clean."
-        keywords={["after-move cleaning", "departure cleaning"]}
-      />
+      <div
+        class="service-item"
+        data-category="cleaning"
+        data-keywords="office cleaning workplace commercial">
+        <ServiceCard
+          Icon={Building}
+          title="Office Cleaning"
+          description="Regular or one-time office cleaning to ensure a clean and healthy work environment."
+          keywords={["office cleaning", "workplace cleaning"]}
+        />
+      </div>
 
-      <!-- Wood Floor Treatment -->
-      <ServiceCard
-        Icon={Brush}
-        title="Floor Sanding"
-        description="Professional sanding to renew wood floors and remove scratches and wear."
-        keywords={["floor sanding", "wood floor restoration"]}
-      />
-      <ServiceCard
-        Icon={Layout}
-        title="Impregnation & Sealing"
-        description="Protective finish after sanding using sealers, natural oils, or appropriate waxes."
-        keywords={["floor sealing", "wood treatment"]}
-      />
-      <ServiceCard
-        Icon={Wrench}
-        title="Specialised Maintenance"
-        description="Ongoing care of wooden floors to ensure durability, shine, and hygiene."
-        keywords={["floor maintenance", "natural wood care"]}
-      />
+      <div
+        class="service-item"
+        data-category="cleaning"
+        data-keywords="post-construction cleaning after renovation site">
+        <ServiceCard
+          Icon={Factory}
+          title="Post-Construction Cleaning"
+          description="Full clean-up after building works to deliver spotless spaces. Dust, debris and residue removal included."
+          keywords={["post-construction cleaning", "after renovation"]}
+        />
+      </div>
 
-      <!-- Renovation -->
-      <ServiceCard
-        Icon={Paintbrush}
-        title="Interior Painting"
-        description="Wall, ceiling, and woodwork painting to refresh or renovate your interiors."
-        keywords={["interior painting", "wall renovation"]}
-      />
-      <ServiceCard
-        Icon={Hammer}
-        title="Complete Renovation"
-        description="Full renovation for residential or business spaces with coordinated quality work."
-        keywords={["renovation Geneva", "full works"]}
-      />
-      <ServiceCard
-        Icon={Wrench}
-        title="Masonry Work"
-        description="Minor masonry tasks: partitions, repairs, and finishing for renovation projects."
-        keywords={["interior masonry", "home improvement"]}
-      />
-      <ServiceCard
-        Icon={Layout}
-        title="Tile Installation"
-        description="Professional floor and wall tile installation in any room and format."
-        keywords={["tile installation", "floor tiling"]}
-      />
-      <ServiceCard
-        Icon={Layout}
-        title="Parquet Installation"
-        description="Installation of floating, solid or laminated parquet with quality finishes."
-        keywords={["parquet installation", "wood flooring"]}
-      />
+      <div
+        class="service-item"
+        data-category="cleaning"
+        data-keywords="house cleaning private home deep clean">
+        <ServiceCard
+          Icon={Home}
+          title="Private House Cleaning"
+          description="Deep cleaning of individual homes, including floors, windows and delicate surfaces."
+          keywords={["house cleaning", "home deep clean"]}
+        />
+      </div>
 
-      <!-- Outdoor Spaces -->
-      <ServiceCard
-        Icon={Flower}
-        title="Garden Maintenance"
-        description="Lawn mowing, weeding, hedge trimming, and seasonal maintenance of private or shared gardens."
-        keywords={["gardening Geneva", "outdoor care"]}
-      />
-      <ServiceCard
-        Icon={Leaf}
-        title="Outdoor Cleaning"
-        description="Cleaning of terraces, paths, facades, and outdoor furniture for spotless results."
-        keywords={["outdoor cleaning", "clean patio"]}
-      />
+      <div
+        class="service-item"
+        data-category="cleaning"
+        data-keywords="carpet cleaning rug steam stain removal">
+        <ServiceCard
+          Icon={Sofa}
+          title="Carpet & Rug Cleaning"
+          description="Stain removal, steam cleaning and disinfection of carpets and rugs for a healthy interior."
+          keywords={["carpet cleaning", "rug cleaning"]}
+        />
+      </div>
 
-      <!-- Moving Services -->
-      <ServiceCard
-        Icon={Truck}
-        title="Full Moving Service"
-        description="Organization, transport, handling, and cleaning included. Turnkey service for homes and businesses."
-        keywords={["moving Geneva", "furniture transport"]}
-      />
-      <ServiceCard
-        Icon={Package}
-        title="Packing & Unpacking Help"
-        description="Assistance with packing your belongings using proper materials. Guaranteed protection."
-        keywords={["moving packing", "box packing"]}
-      />
-      <ServiceCard
-        Icon={Move}
-        title="Transport & Handling"
-        description="Loading, transporting, and unloading your items safely and efficiently."
-        keywords={["transport Geneva", "moving assistance"]}
-      />
+      <div
+        class="service-item"
+        data-category="cleaning"
+        data-keywords="window cleaning glass washing interior exterior">
+        <ServiceCard
+          Icon={Glasses}
+          title="Window Cleaning"
+          description="Professional washing of windows, glass panels and bay windows. Interior and exterior, simple or complex access."
+          keywords={["window cleaning", "glass cleaning"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="cleaning"
+        data-keywords="woodwork cleaning shutters blinds veranda">
+        <ServiceCard
+          Icon={Layout}
+          title="Woodwork & Veranda Cleaning"
+          description="Careful cleaning of sensitive surfaces: blinds, shutters, verandas and woodwork with appropriate products."
+          keywords={["woodwork cleaning", "veranda cleaning"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="cleaning"
+        data-keywords="commercial cleaning shop retail entrance hall">
+        <ServiceCard
+          Icon={Building}
+          title="Commercial Space Cleaning"
+          description="Regular cleaning and maintenance of shops, entrance halls, retail areas and client spaces."
+          keywords={["commercial cleaning", "shop cleaning"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="cleaning"
+        data-keywords="pressure washing high pressure facade outdoor">
+        <ServiceCard
+          Icon={Brush}
+          title="High-Pressure Washing"
+          description="Removal of stubborn dirt from outdoor floors, facades, walls and industrial equipment."
+          keywords={["pressure washing", "facade cleaning"]}
+        />
+      </div>
+
+      <!-- MAINTENANCE & CONCIERGE -->
+      <div
+        class="service-item"
+        data-category="maintenance"
+        data-keywords="housekeeper cleaning staff home maintenance regular">
+        <ServiceCard
+          Icon={Key}
+          title="Housekeeper Service"
+          description="Qualified housekeeping staff for daily or weekly upkeep of your private or professional spaces."
+          keywords={["housekeeper Geneva", "home maintenance"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="maintenance"
+        data-keywords="building maintenance common areas stairwell elevator">
+        <ServiceCard
+          Icon={Building}
+          title="Building Maintenance"
+          description="Upkeep of common areas: stairwells, elevators, entrance halls and technical rooms with reliability."
+          keywords={["building maintenance", "common areas cleaning"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="maintenance"
+        data-keywords="concierge service keys management building">
+        <ServiceCard
+          Icon={Key}
+          title="Concierge Service"
+          description="Practical services: key management, surveillance, minor repairs and personalised support."
+          keywords={["concierge Geneva", "building services"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="maintenance"
+        data-keywords="end of tenancy cleaning handover inspection">
+        <ServiceCard
+          Icon={Boxes}
+          title="End of Tenancy Cleaning"
+          description="Cleaning and preparation to ensure a compliant handover of rental or leased properties."
+          keywords={["end of tenancy", "handover cleaning"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="maintenance"
+        data-keywords="post-move cleaning after moving out restoration">
+        <ServiceCard
+          Icon={Move}
+          title="Post-Move Cleaning"
+          description="Restoration of premises after moving out to ensure a perfect handover of spaces."
+          keywords={["post-move cleaning", "moving out cleaning"]}
+        />
+      </div>
+
+      <!-- FLOORS & PARQUET -->
+      <div
+        class="service-item"
+        data-category="floors"
+        data-keywords="floor sanding parquet wood renovation scratches">
+        <ServiceCard
+          Icon={Brush}
+          title="Floor Sanding"
+          description="Parquet restoration through professional sanding to remove scratches and signs of wear."
+          keywords={["floor sanding", "parquet renovation"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="floors"
+        data-keywords="floor varnishing sealing oil wax treatment">
+        <ServiceCard
+          Icon={Layout}
+          title="Sealing & Varnishing"
+          description="Protection and finishing of parquet after sanding: varnish, natural oils or waxes as required."
+          keywords={["floor varnishing", "parquet treatment"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="floors"
+        data-keywords="parquet maintenance wood floor upkeep care">
+        <ServiceCard
+          Icon={Wrench}
+          title="Specialist Floor Maintenance"
+          description="Regular maintenance of hardwood floors to ensure durability, shine and hygiene."
+          keywords={["floor maintenance", "hardwood care"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="floors"
+        data-keywords="parquet installation floating solid engineered wood floor">
+        <ServiceCard
+          Icon={Layout}
+          title="Parquet Installation"
+          description="Installation of floating, solid or engineered parquet with precision and quality finishes."
+          keywords={["parquet installation", "wood floor fitting"]}
+        />
+      </div>
+
+      <!-- RENOVATION -->
+      <div
+        class="service-item"
+        data-category="renovation"
+        data-keywords="interior painting walls ceiling woodwork refresh">
+        <ServiceCard
+          Icon={Paintbrush}
+          title="Interior Painting"
+          description="Wall, ceiling and woodwork painting to refresh or renovate your interiors with care and precision."
+          keywords={["interior painting", "wall renovation"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="renovation"
+        data-keywords="full renovation complete refurbishment residential commercial">
+        <ServiceCard
+          Icon={Hammer}
+          title="Full Renovation"
+          description="Complete renovation of residential or commercial spaces: trade coordination, quality guaranteed."
+          keywords={["renovation Geneva", "full refurbishment"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="renovation"
+        data-keywords="masonry brickwork partition repairs finishing">
+        <ServiceCard
+          Icon={Wrench}
+          title="Masonry Work"
+          description="Minor masonry projects: partition walls, repairs and finishing work for renovation projects."
+          keywords={["masonry work", "home repairs"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="renovation"
+        data-keywords="tile laying wall floor tiling installation">
+        <ServiceCard
+          Icon={Layout}
+          title="Tile Laying"
+          description="Professional installation of wall and floor tiles, all rooms and formats covered."
+          keywords={["tile laying", "floor tiling"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="renovation"
+        data-keywords="parquet installation floating solid engineered wood floor">
+        <ServiceCard
+          Icon={Layout}
+          title="Parquet Installation"
+          description="Installation of floating, solid or engineered parquet with precision and quality finishes."
+          keywords={["parquet installation", "wood floor fitting"]}
+        />
+      </div>
+
+      <!-- OUTDOOR SPACES -->
+      <div
+        class="service-item"
+        data-category="outdoor"
+        data-keywords="garden maintenance lawn mowing hedge trimming seasonal">
+        <ServiceCard
+          Icon={Flower}
+          title="Garden Maintenance"
+          description="Mowing, weeding, hedge trimming and seasonal upkeep of private or shared gardens."
+          keywords={["garden maintenance Geneva", "outdoor upkeep"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="outdoor"
+        data-keywords="outdoor cleaning terrace pathway facade furniture">
+        <ServiceCard
+          Icon={Leaf}
+          title="Outdoor Space Cleaning"
+          description="Cleaning of terraces, pathways, facades and outdoor furniture for a spotless result."
+          keywords={["outdoor cleaning", "terrace cleaning"]}
+        />
+      </div>
+
+      <!-- MOVING -->
+      <div
+        class="service-item"
+        data-category="moving"
+        data-keywords="full moving service relocation transport Geneva">
+        <ServiceCard
+          Icon={Truck}
+          title="Full Moving Service"
+          description="Organisation, transport, handling and cleaning included. Complete turnkey service for individuals and businesses."
+          keywords={["moving Geneva", "furniture transport"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="moving"
+        data-keywords="packing unpacking boxes moving assistance">
+        <ServiceCard
+          Icon={Package}
+          title="Packing & Unpacking Assistance"
+          description="Help packing your belongings with suitable materials. Optimal protection guaranteed."
+          keywords={["packing service", "moving boxes"]}
+        />
+      </div>
+
+      <div
+        class="service-item"
+        data-category="moving"
+        data-keywords="transport handling loading unloading furniture removal">
+        <ServiceCard
+          Icon={Move}
+          title="Transport & Handling"
+          description="Loading, transport and unloading of your belongings safely and efficiently."
+          keywords={["transport Geneva", "furniture removal"]}
+        />
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .service-item {
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+  .service-item.hidden-item {
+    display: none;
+  }
+  .filter-btn.active {
+    background-color: var(--color-cleannet-blue, #1e3a8a);
+    border-color: var(--color-cleannet-blue, #1e3a8a);
+    color: white;
+  }
+</style>
+
+<script>
+  const searchInput = document.getElementById(
+    "service-search",
+  ) as HTMLInputElement;
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const serviceItems = document.querySelectorAll(".service-item");
+  const noResults = document.getElementById("no-results");
+
+  let activeFilter = "all";
+
+  function applyFilters() {
+    const query = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    serviceItems.forEach((item) => {
+      const el = item as HTMLElement;
+      const category = el.dataset.category || "";
+      const keywords = el.dataset.keywords || "";
+      const title =
+        el
+          .querySelector('[class*="font-bold"], h3, p')
+          ?.textContent?.toLowerCase() || "";
+      const fullText = (keywords + " " + title).toLowerCase();
+
+      const matchesFilter = activeFilter === "all" || category === activeFilter;
+      const matchesSearch = query === "" || fullText.includes(query);
+
+      if (matchesFilter && matchesSearch) {
+        el.classList.remove("hidden-item");
+        visible++;
+      } else {
+        el.classList.add("hidden-item");
+      }
+    });
+
+    if (noResults) {
+      noResults.classList.toggle("hidden", visible > 0);
+    }
+  }
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      filterButtons.forEach((b) => {
+        b.classList.remove("active");
+        (b as HTMLElement).style.backgroundColor = "";
+        (b as HTMLElement).style.borderColor = "";
+        (b as HTMLElement).style.color = "";
+      });
+      btn.classList.add("active");
+      activeFilter = (btn as HTMLElement).dataset.filter || "all";
+      applyFilters();
+    });
+  });
+
+  searchInput?.addEventListener("input", applyFilters);
+</script>
